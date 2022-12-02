@@ -20,5 +20,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> CARROT_SEEDS = ITEMS.register("carrot_seeds",
             () -> new ItemNameBlockItem(Blocks.CARROTS, properties()));
 
-    private static Item.Properties properties() {return new Item.Properties().tab(Agricultism.TAB);}
+    public static Item.Properties properties() {
+        return new Item.Properties().tab(Agricultism.TAB);
+    }
 }

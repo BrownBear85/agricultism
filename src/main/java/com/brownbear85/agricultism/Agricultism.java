@@ -1,6 +1,7 @@
 package com.brownbear85.agricultism;
 
 import com.brownbear85.agricultism.common.block.BlockRegistry;
+import com.brownbear85.agricultism.common.enchantment.EnchantmentRegistry;
 import com.brownbear85.agricultism.common.item.ItemRegistry;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.NonNullList;
@@ -30,6 +31,7 @@ public class Agricultism {
 
         BlockRegistry.BLOCKS.register(bus);
         ItemRegistry.ITEMS.register(bus);
+        EnchantmentRegistry.ENCHANTMENTS.register(bus);
 
         bus.addListener(this::commonSetup);
 
