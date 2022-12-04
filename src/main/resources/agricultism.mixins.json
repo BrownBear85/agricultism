@@ -5,7 +5,7 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "agricultism.refmap.json",
   "mixins": [
-    "FarmlandMixin"
+    "FarmBlockMixin"
   ],
   "client": [
   ],

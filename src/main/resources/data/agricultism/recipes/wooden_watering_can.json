@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "tag": "minecraft:planks"
+    },
+    "_": {
+      "tag": "minecraft:wooden_slabs"
+    }
+  },
+  "pattern": [
+    " _ ",
+    "# #",
+    " # "
+  ],
+  "result": {
+    "item": "agricultism:wooden_watering_can"
+  }
+}

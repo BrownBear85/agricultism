@@ -1,6 +1,10 @@
 {
-  "item.agricultism.potato_seeds": "Seed Potatoes",
+  "item.agricultism.potato_seeds": "Potato Seeds",
   "item.agricultism.carrot_seeds": "Carrot Seeds",
   "itemGroup.agricultism": "Agricultism",
-  "enchantment.agricultism.cultivating": "Cultivating"
+  "enchantment.agricultism.cultivating": "Cultivating",
+  "item.agricultism.wooden_watering_can": "Wooden Watering Can",
+  "item.agricultism.watering_can.storedWater": "Stored: %s / %s mB",
+  "item.agricultism.watering_can.range_1": "Range: §71 block",
+  "item.agricultism.watering_can.range": "Range: %s §7blocks"
 }

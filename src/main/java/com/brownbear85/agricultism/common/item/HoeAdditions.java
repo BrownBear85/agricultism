@@ -1,8 +1,6 @@
 package com.brownbear85.agricultism.common.item;
 
-import com.brownbear85.agricultism.Agricultism;
 import com.brownbear85.agricultism.common.enchantment.EnchantmentRegistry;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
@@ -22,7 +20,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -32,10 +29,11 @@ import java.util.List;
 
 import static com.brownbear85.agricultism.Agricultism.MODID;
 
-public class HoeFunctions {
-    public static boolean harvestCrop(Level level, BlockPos pos, Player player, ItemStack stack, InteractionHand hand) {
+public class HoeAdditions {
+    public static boolean harvestCrop(Level level, BlockPos pos, Player player, InteractionHand hand) {
         boolean success = false;
         BlockState state = level.getBlockState(pos);
+        ItemStack stack = player.getItemInHand(hand);
 
         if (state.getBlock() instanceof CropBlock cropBlock && cropBlock.isMaxAge(state)) {
             success = true;
@@ -80,32 +78,25 @@ public class HoeFunctions {
                 Player player = event.getEntity();
                 Level level = player.getLevel();
 
-                HitResult result = Minecraft.getInstance().hitResult;
-                if (result != null && result.getType() == HitResult.Type.BLOCK) {
-                    InteractionHand hand = event.getHand();
+                BlockHitResult result = event.getHitVec();
+                InteractionHand hand = event.getHand();
 
-                    boolean swing = false;
+                boolean swing = false;
 
-                    BlockPos centerPos = ((BlockHitResult) result).getBlockPos();
-                    int range = stack.getEnchantmentLevel(EnchantmentRegistry.HOE_RANGE.get());
+                BlockPos centerPos = result.getBlockPos();
+                int range = stack.getEnchantmentLevel(EnchantmentRegistry.HOE_RANGE.get());
 
-                    if (range > 0) {
-                        event.setCanceled(true);
-                        for (BlockPos pos : BlockPos.betweenClosed(centerPos.offset(-range, 0, -range), centerPos.offset(range, 0, range))) {
-                            InteractionResult interactionResult = Items.WOODEN_HOE.useOn(new UseOnContext(player, hand, new BlockHitResult(new Vec3(pos.getX(), pos.getY(), pos.getZ()), ((BlockHitResult) result).getDirection(), pos, ((BlockHitResult) result).isInside())));
-                            boolean harvested = harvestCrop(level, pos, player, stack, hand);
-                            if (!swing) {
-                                swing = interactionResult == InteractionResult.SUCCESS || harvested;
-                            }
-
-                        }
-                    } else {
-                        swing = harvestCrop(level, centerPos, player, stack, hand);
+                for (BlockPos pos : BlockPos.betweenClosed(centerPos.offset(-range, 0, -range), centerPos.offset(range, 0, range))) {
+                    InteractionResult interactionResult = Items.WOODEN_HOE.useOn(new UseOnContext(player, hand, new BlockHitResult(new Vec3(pos.getX(), pos.getY(), pos.getZ()), result.getDirection(), pos, result.isInside())));
+                    boolean harvested = harvestCrop(level, pos, player, hand);
+                    if (!swing) {
+                        swing = interactionResult == InteractionResult.SUCCESS || harvested;
                     }
+                }
 
-                    if (swing) {
-                        player.swing(hand);
-                    }
+                if (swing) {
+                    player.swing(hand);
+                    event.setCanceled(true);
                 }
             }
         }

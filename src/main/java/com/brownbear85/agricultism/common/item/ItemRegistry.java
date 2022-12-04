@@ -18,6 +18,12 @@ public class ItemRegistry {
     public static final RegistryObject<Item> CARROT_SEEDS = ITEMS.register("carrot_seeds",
             () -> new ItemNameBlockItem(Blocks.CARROTS, new Item.Properties()));
 
+    public static final RegistryObject<Item> WOODEN_WATERING_CAN = ITEMS.register("wooden_watering_can",
+            () -> new WateringCanItem(properties().stacksTo(1), 2000, 0));
+
+
+
+
     public static Item.Properties properties() {
         return new Item.Properties().tab(Agricultism.TAB);
     }
