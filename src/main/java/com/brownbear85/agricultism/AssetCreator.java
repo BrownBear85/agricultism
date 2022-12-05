@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public final class AssetCreator {
+public final class /**/AssetCreator {
     public static final String MOD_PATH = "C:\\Users\\Connor Wright\\Desktop\\Agricultism";
 
     public static class Templates {
@@ -222,7 +222,6 @@ public final class AssetCreator {
     }
 
     public static void main(String[] args) {
-        createBasicItem("potato_seeds");
-        createBasicItem("carrot_seeds");
+        createBasicItem("creative_watering_can");
     }
 }

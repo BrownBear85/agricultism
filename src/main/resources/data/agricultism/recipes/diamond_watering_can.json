@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "B": {
+      "item": "minecraft:bucket"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "pattern": [
+    " D ",
+    "DBD",
+    " D "
+  ],
+  "result": {
+    "item": "agricultism:diamond_watering_can"
+  }
+}

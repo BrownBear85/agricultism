@@ -1,10 +1,18 @@
 {
-  "item.agricultism.potato_seeds": "Potato Seeds",
-  "item.agricultism.carrot_seeds": "Carrot Seeds",
-  "itemGroup.agricultism": "Agricultism",
   "enchantment.agricultism.cultivating": "Cultivating",
-  "item.agricultism.wooden_watering_can": "Wooden Watering Can",
-  "item.agricultism.watering_can.storedWater": "Stored: %s / %s mB",
+  "item.agricultism.carrot_seeds": "Carrot Seeds",
+  "item.agricultism.diamond_watering_can": "Diamond Watering Can",
+  "item.agricultism.flint_watering_can": "Flint Watering Can",
+  "item.agricultism.golden_watering_can": "Golden Watering Can",
+  "item.agricultism.iron_watering_can": "Iron Watering Can",
+  "item.agricultism.netherite_watering_can": "Netherite Watering Can",
+  "item.agricultism.obsidian_watering_can": "Obsidian Watering Can",
+  "item.agricultism.potato_seeds": "Potato Seeds",
+  "item.agricultism.stone_watering_can": "Stone Watering Can",
+  "item.agricultism.watering_can.range": "Range: %s §7blocks",
   "item.agricultism.watering_can.range_1": "Range: §71 block",
-  "item.agricultism.watering_can.range": "Range: %s §7blocks"
+  "item.agricultism.watering_can.storedWater": "Stored: %s / %s mB",
+  "item.agricultism.wooden_watering_can": "Wooden Watering Can",
+  "itemGroup.agricultism": "Agricultism",
+  "item.agricultism.creative_watering_can": "Creative Watering Can"
 }

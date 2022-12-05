@@ -25,8 +25,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class WateringCanItem extends Item implements IWaterHolder{
-    private final int storage;
-    private final int range;
+    protected final int storage;
+    protected final int range;
 
     public WateringCanItem(Properties properties, int storage, int range) {
         super(properties);

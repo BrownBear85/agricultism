@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:cobblestone"
+    },
+    "_": {
+      "item": "minecraft:cobblestone_slab"
+    }
+  },
+  "pattern": [
+    " _ ",
+    "# #",
+    " # "
+  ],
+  "result": {
+    "item": "agricultism:stone_watering_can"
+  }
+}

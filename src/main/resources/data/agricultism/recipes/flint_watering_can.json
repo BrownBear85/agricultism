@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "F": {
+      "item": "minecraft:flint"
+    },
+    "W": {
+      "item": "agricultism:stone_watering_can"
+    }
+  },
+  "pattern": [
+    " F ",
+    "FWF",
+    " F "
+  ],
+  "result": {
+    "item": "agricultism:flint_watering_can"
+  }
+}

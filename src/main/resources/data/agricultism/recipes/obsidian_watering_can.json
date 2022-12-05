@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "O": {
+      "item": "minecraft:obsidian"
+    },
+    "W": {
+      "item": "agricultism:diamond_watering_can"
+    }
+  },
+  "pattern": [
+    " O ",
+    "OWO",
+    " O "
+  ],
+  "result": {
+    "item": "agricultism:obsidian_watering_can"
+  }
+}
