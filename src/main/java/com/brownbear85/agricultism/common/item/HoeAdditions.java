@@ -1,5 +1,6 @@
 package com.brownbear85.agricultism.common.item;
 
+import com.brownbear85.agricultism.Agricultism;
 import com.brownbear85.agricultism.common.enchantment.EnchantmentRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.BlockParticleOption;
@@ -48,7 +49,7 @@ public class HoeAdditions {
 
                 boolean takenSeed = false;
                 for (ItemStack drop : drops) {
-                    if (drop.getItem() instanceof ItemNameBlockItem) {
+                    if (drop.getItem() instanceof ItemNameBlockItem && !drop.getItem().getCreatorModId(drop).equals(Agricultism.MODID)) {
                         if (!takenSeed) {
                             drop.shrink(1);
                             takenSeed = true;

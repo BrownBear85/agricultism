@@ -14,5 +14,14 @@
   "item.agricultism.watering_can.storedWater": "Stored: %s / %s mB",
   "item.agricultism.wooden_watering_can": "Wooden Watering Can",
   "itemGroup.agricultism": "Agricultism",
-  "item.agricultism.creative_watering_can": "Creative Watering Can"
+  "item.agricultism.creative_watering_can": "Creative Watering Can",
+  "item.agricultism.oak_bark": "Oak Bark",
+  "item.agricultism.birch_bark": "Birch Bark",
+  "item.agricultism.spruce_bark": "Spruce Bark",
+  "item.agricultism.dark_oak_bark": "Dark Oak Bark",
+  "item.agricultism.jungle_bark": "Jungle Bark",
+  "item.agricultism.acacia_bark": "Acacia Bark",
+  "item.agricultism.mangrove_bark": "Mangrove Bark",
+  "item.agricultism.crimson_bark": "Crimson Bark",
+  "item.agricultism.warped_bark": "Warped Bark"
 }

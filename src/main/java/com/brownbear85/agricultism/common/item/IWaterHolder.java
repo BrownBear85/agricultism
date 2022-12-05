@@ -25,7 +25,7 @@ public interface IWaterHolder {
         }
     }
 
-    /** @return if the subtraction did not fail
+    /** @return if the subtraction was successful
      * @param cancel if the subtraction should cancel if it failed */
     default boolean subtractWater(ItemStack stack, int mB, boolean cancel) {
         if (stack.getItem() instanceof IWaterHolder) {

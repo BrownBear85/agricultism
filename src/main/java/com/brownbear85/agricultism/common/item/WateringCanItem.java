@@ -50,12 +50,15 @@ public class WateringCanItem extends Item implements IWaterHolder{
                 level.playSeededSound(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, SoundEvents.BUCKET_FILL, SoundSource.PLAYERS, 1.0F, 1.0F, level.random.nextLong());
                 return InteractionResultHolder.success(stack);
             } else {
-                if (!subtractWater(stack, (range * 2 + 1) * (range * 2 + 1) * 250, true)) {
-                    level.playSeededSound(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, SoundEvents.SOUL_SAND_STEP, SoundSource.PLAYERS, 1.0F, 1.0F, level.random.nextLong());
-                    return InteractionResultHolder.consume(stack);
+                int usedRange = player.isCrouching() ? 0 : range;
+                if (!player.getAbilities().instabuild) {
+                    if (!subtractWater(stack, (usedRange * 2 + 1) * (usedRange * 2 + 1) * 250, true)) {
+                        level.playSeededSound(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, SoundEvents.SOUL_SAND_STEP, SoundSource.PLAYERS, 1.0F, 1.0F, level.random.nextLong());
+                        return InteractionResultHolder.consume(stack);
+                    }
                 }
                 level.playSeededSound(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, SoundEvents.BUCKET_EMPTY_TADPOLE, SoundSource.PLAYERS, 1.0F, 1.0F, level.random.nextLong());
-                for (BlockPos blockpos : BlockPos.betweenClosed(pos.offset(-range, 0, -range), pos.offset(range, -1, range))) {
+                for (BlockPos blockpos : BlockPos.betweenClosed(pos.offset(-usedRange, 0, -usedRange), pos.offset(usedRange, -1, usedRange))) {
                     BlockState blockstate = level.getBlockState(blockpos);
                     if (blockstate.getBlock() instanceof FarmBlock) {
                         level.setBlock(blockpos, blockstate.setValue(FarmBlock.MOISTURE, FarmBlock.MAX_MOISTURE), 3);

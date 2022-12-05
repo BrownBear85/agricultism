@@ -26,7 +26,7 @@ public class FarmBlockMixin {
         if (!isNearWater(level, pos) && !level.isRainingAt(pos.above())) {
             if (moisture == 1 && rand > 0.9) {
                 FarmBlock.turnToDirt(state, level, pos);
-            } else if ((moisture == 7 && rand > 0.95) || (moisture < 7 && moisture > 0 && rand > 0.9)) {
+            } else if ((moisture == 7 && rand > 0.98) || (moisture > 0 && moisture < 7 && rand > 0.7)) {
                 level.setBlock(pos, state.setValue(FarmBlock.MOISTURE, moisture - 1), 2);
             }
         } else if (moisture < 7) {
