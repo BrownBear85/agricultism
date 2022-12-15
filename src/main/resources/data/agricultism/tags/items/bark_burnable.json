@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "agricultism:oak_bark",
+    "agricultism:birch_bark",
+    "agricultism:spruce_bark",
+    "agricultism:jungle_bark",
+    "agricultism:acacia_bark",
+    "agricultism:dark_oak_bark",
+    "agricultism:mangrove_bark"
+  ]
+}
