@@ -3,9 +3,12 @@ package com.brownbear85.agricultism;
 import com.brownbear85.agricultism.common.block.BlockRegistry;
 import com.brownbear85.agricultism.common.enchantment.EnchantmentRegistry;
 import com.brownbear85.agricultism.common.item.ItemRegistry;
+import com.brownbear85.agricultism.common.item.custom.SeedPouchItem;
 import com.mojang.logging.LogUtils;
 import it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap;
 import net.minecraft.core.NonNullList;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.CreativeModeTab;
@@ -49,6 +52,21 @@ public class Agricultism {
         @Override
         public ItemStack makeIcon() {
             return ItemRegistry.SEED_POUCH.get().getDefaultInstance();
+        }
+
+        @Override
+        public void fillItemList(NonNullList<ItemStack> list) {
+            super.fillItemList(list);
+            ItemStack stack = new ItemStack(ItemRegistry.ADVANCED_SEED_POUCH.get());
+            ListTag pouch = new ListTag();
+            pouch.add(SeedPouchItem.of(Items.WHEAT_SEEDS, 512));
+            pouch.add(SeedPouchItem.of(ItemRegistry.POTATO_SEEDS.get(), 512));
+            pouch.add(SeedPouchItem.of(ItemRegistry.CARROT_SEEDS.get(), 512));
+            pouch.add(SeedPouchItem.of(Items.BEETROOT_SEEDS, 512));
+            pouch.add(SeedPouchItem.of(Items.PUMPKIN_SEEDS, 512));
+            pouch.add(SeedPouchItem.of(Items.MELON_SEEDS, 512));
+            stack.getOrCreateTag().put("Items", pouch);
+            list.add(stack);
         }
     };
 

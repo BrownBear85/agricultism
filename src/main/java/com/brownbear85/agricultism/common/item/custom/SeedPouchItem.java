@@ -32,12 +32,14 @@ import java.util.Optional;
 
 public class SeedPouchItem extends Item {
 
-    private static final int STORAGE_SIZE = 1;
-    private static final int STACK_SIZE = 512;
+    private final int storageSize;
+    private final int stackSize;
     private static final int FULLNESS_COLOR = 3272990;
 
-    public SeedPouchItem(Item.Properties properties) {
+    public SeedPouchItem(Item.Properties properties, int storage, int stack) {
         super(properties);
+        this.storageSize = storage;
+        this.stackSize = stack;
     }
 
     @Override
@@ -74,8 +76,7 @@ public class SeedPouchItem extends Item {
                     addStack(stack, slot.safeInsert(item));
                 });
             } else if (canGoInSeedPouch(slotItem)) {
-                int i = STORAGE_SIZE * STACK_SIZE - getNumItems(stack);
-                int added = addStack(stack, slot.safeTake(slotItem.getCount(), i, player));
+                int added = addStack(stack, slot.safeTake(slotItem.getCount(), getCapacityOfStack(stack, slotItem), player));
                 if (added > 0) {
                     playAddSound(player);
                 }
@@ -111,7 +112,7 @@ public class SeedPouchItem extends Item {
 
     @Override
     public int getBarWidth(ItemStack stack) {
-        return (int) ((getNumItems(stack) / (float) (STACK_SIZE * STORAGE_SIZE)) * 13);
+        return (int) ((getNumItems(stack) / (float) (stackSize * storageSize)) * 13);
     }
 
     @Override
@@ -126,7 +127,6 @@ public class SeedPouchItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
-        CompoundTag nbt = stack.getOrCreateTag();
         ListTag list = getOrCreateItems(stack);
         if (list.size() == 0) {
             tooltip.add(Component.translatable("item.agricultism.seed_pouch.empty").withStyle(ChatFormatting.DARK_GRAY).withStyle(ChatFormatting.ITALIC));
@@ -142,7 +142,14 @@ public class SeedPouchItem extends Item {
         }
     }
 
-    private static int addStack(ItemStack stack, ItemStack addItem) {
+    public static CompoundTag of(Item item, int count) {
+        CompoundTag compoundTag = new CompoundTag();
+        compoundTag.putInt("Count", count);
+        compoundTag.putString("id", String.valueOf(ForgeRegistries.ITEMS.getKey(item)));
+        return compoundTag;
+    }
+
+    private int addStack(ItemStack stack, ItemStack addItem) {
         if (canGoInSeedPouch(addItem)) {
             ListTag list = getOrCreateItems(stack);
             for (int i = 0; i < list.size(); i++) {
@@ -150,15 +157,15 @@ public class SeedPouchItem extends Item {
                 if (tagIsItem(compoundTag)) {
                     if (addItem.is(itemFromId(compoundTag.getString("id")))) {
                         int originalCount = compoundTag.getInt("Count");
-                        int addedAmount = Math.min(originalCount + addItem.getCount(), STACK_SIZE) - originalCount;
+                        int addedAmount = Math.min(originalCount + addItem.getCount(), stackSize) - originalCount;
                         addItem.shrink(addedAmount);
                         compoundTag.putInt("Count", originalCount + addedAmount);
                         return addedAmount;
                     }
                 }
             }
-            if (list.size() < STORAGE_SIZE) {
-                int addedAmount = Math.min(addItem.getCount(), STACK_SIZE);
+            if (list.size() < storageSize) {
+                int addedAmount = Math.min(addItem.getCount(), stackSize);
                 CompoundTag compoundTag = new CompoundTag();
                 list.add(compoundTag);
                 compoundTag.putString("id", String.valueOf(ForgeRegistries.ITEMS.getKey(addItem.getItem())));
@@ -189,7 +196,7 @@ public class SeedPouchItem extends Item {
     public static NonNullList<ItemStack> getContents(ItemStack stack) {
         ListTag listTag = getOrCreateItems(stack);
         NonNullList<ItemStack> list = NonNullList.createWithCapacity(listTag.size());
-        listTag.stream().forEachOrdered((tag) -> {
+        listTag.forEach((tag) -> {
             if (tag instanceof CompoundTag compoundTag && tagIsItem(compoundTag)) {
                 list.add(new ItemStack(itemFromId(compoundTag.getString("id")), compoundTag.getInt("Count")));
             }
@@ -199,6 +206,19 @@ public class SeedPouchItem extends Item {
 
     public static int getNumItems(ItemStack stack) {
         return getContents(stack).stream().mapToInt(ItemStack::getCount).sum();
+    }
+
+    private int getCapacityOfStack(ItemStack stack, ItemStack checkStack) {
+        if (!canGoInSeedPouch(checkStack)) {
+            return 0;
+        }
+        NonNullList<ItemStack> list = getContents(stack);
+        for (ItemStack item : list) {
+            if (ItemStack.isSame(item, checkStack)) {
+                return stackSize - item.getCount();
+            }
+        }
+        return list.size() < storageSize ? stackSize : 0;
     }
 
     private static boolean canGoInSeedPouch(ItemStack stack) {

@@ -222,7 +222,7 @@ public final class /**/AssetCreator {
     }
 
     public static void main(String[] args) {
-        createBasicItem("seed_pouch");
+        createBasicItem("advanced_seed_pouch");
 
     }
 }

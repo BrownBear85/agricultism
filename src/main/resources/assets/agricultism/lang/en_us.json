@@ -27,5 +27,6 @@
   "block.agricultism.oak_drum": "Oak Drum",
   "item.agricultism.char": "Char",
   "item.agricultism.seed_pouch": "Seed Pouch",
-  "item.agricultism.seed_pouch.empty": "No Seeds"
+  "item.agricultism.seed_pouch.empty": "No Seeds",
+  "item.agricultism.advanced_seed_pouch": "Advanced Seed Pouch"
 }

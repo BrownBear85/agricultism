@@ -8,6 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -34,21 +35,22 @@ public class ItemRegistry {
 
     public static final RegistryObject<Item> WOODEN_WATERING_CAN = ITEMS.register("wooden_watering_can", () -> new WateringCanItem(properties().stacksTo(1), 1000, 0));
     public static final RegistryObject<Item> STONE_WATERING_CAN = ITEMS.register("stone_watering_can", () -> new WateringCanItem(properties().stacksTo(1), 4000, 0));
-    public static final RegistryObject<Item> FLINT_WATERING_CAN = ITEMS.register("flint_watering_can", () -> new WateringCanItem(properties().stacksTo(1), 4500, 1));
+    public static final RegistryObject<Item> FLINT_WATERING_CAN = ITEMS.register("flint_watering_can", () -> new WateringCanItem(properties().stacksTo(1).rarity(Rarity.UNCOMMON), 4500, 1));
     public static final RegistryObject<Item> IRON_WATERING_CAN = ITEMS.register("iron_watering_can", () -> new WateringCanItem(properties().stacksTo(1), 16000, 0));
-    public static final RegistryObject<Item> GOLD_WATERING_CAN = ITEMS.register("golden_watering_can", () -> new WateringCanItem(properties().stacksTo(1), 18000, 1));
+    public static final RegistryObject<Item> GOLD_WATERING_CAN = ITEMS.register("golden_watering_can", () -> new WateringCanItem(properties().stacksTo(1).rarity(Rarity.UNCOMMON), 18000, 1));
     public static final RegistryObject<Item> DIAMOND_WATERING_CAN = ITEMS.register("diamond_watering_can", () -> new WateringCanItem(properties().stacksTo(1), 65250, 1));
-    public static final RegistryObject<Item> OBSIDIAN_WATERING_CAN = ITEMS.register("obsidian_watering_can", () -> new WateringCanItem(properties().stacksTo(1), 68750, 2));
-    public static final RegistryObject<Item> NETHERITE_WATERING_CAN = ITEMS.register("netherite_watering_can", () -> new WateringCanItem(properties().stacksTo(1), 131250, 2));
-    public static final RegistryObject<Item> CREATIVE_WATERING_CAN = ITEMS.register("creative_watering_can", () -> new CreativeWateringCanItem(properties().stacksTo(1), Integer.MAX_VALUE, 3));
+    public static final RegistryObject<Item> OBSIDIAN_WATERING_CAN = ITEMS.register("obsidian_watering_can", () -> new WateringCanItem(properties().stacksTo(1).rarity(Rarity.UNCOMMON), 68750, 2));
+    public static final RegistryObject<Item> NETHERITE_WATERING_CAN = ITEMS.register("netherite_watering_can", () -> new WateringCanItem(properties().stacksTo(1).rarity(Rarity.RARE), 131250, 2));
+    public static final RegistryObject<Item> CREATIVE_WATERING_CAN = ITEMS.register("creative_watering_can", () -> new CreativeWateringCanItem(properties().stacksTo(1).rarity(Rarity.EPIC), Integer.MAX_VALUE, 3));
 
-    public static final RegistryObject<Item> SEED_POUCH = ITEMS.register("seed_pouch", () -> new SeedPouchItem(properties().stacksTo(1)));
+    public static final RegistryObject<Item> SEED_POUCH = ITEMS.register("seed_pouch", () -> new SeedPouchItem(properties().stacksTo(1), 1, 512));
+    public static final RegistryObject<Item> ADVANCED_SEED_POUCH = ITEMS.register("advanced_seed_pouch", () -> new SeedPouchItem(properties().stacksTo(1).rarity(Rarity.RARE), 6, 512));
+
+
 
     public static Item.Properties properties() {
         return new Item.Properties().tab(Agricultism.TAB);
     }
-
-
 
     public static class Tags {
 
