@@ -1,6 +1,7 @@
 package com.brownbear85.agricultism.common;
 
 import com.brownbear85.agricultism.Agricultism;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.data.tags.TagsProvider;
@@ -17,7 +18,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FarmBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.ToolActions;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;

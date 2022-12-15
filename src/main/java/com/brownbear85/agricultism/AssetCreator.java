@@ -222,15 +222,7 @@ public final class /**/AssetCreator {
     }
 
     public static void main(String[] args) {
-        createBasicItem("oak_bark");
-        createBasicItem("birch_bark");
-        createBasicItem("spruce_bark");
-        createBasicItem("dark_oak_bark");
-        createBasicItem("jungle_bark");
-        createBasicItem("acacia_bark");
-        createBasicItem("mangrove_bark");
-        createBasicItem("crimson_bark");
-        createBasicItem("warped_bark");
+        createBasicItem("seed_pouch");
 
     }
 }

@@ -1,4 +1,4 @@
-package com.brownbear85.agricultism.common.item;
+package com.brownbear85.agricultism.common.item.custom;
 
 import net.minecraft.world.item.ItemStack;
 

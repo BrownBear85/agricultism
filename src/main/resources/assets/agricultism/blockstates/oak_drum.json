@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "agricultism:block/oak_drum_z"
+    },
+    "facing=south": {
+      "model": "agricultism:block/oak_drum_z"
+    },
+    "facing=east": {
+      "model": "agricultism:block/oak_drum_x"
+    },
+    "facing=west": {
+      "model": "agricultism:block/oak_drum_x"
+    }
+  }
+}

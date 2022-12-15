@@ -1,4 +1,4 @@
-package com.brownbear85.agricultism.common.item;
+package com.brownbear85.agricultism.common.item.custom;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -24,7 +24,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class WateringCanItem extends Item implements IWaterHolder{
+public class WateringCanItem extends Item implements IWaterHolder {
     protected final int storage;
     protected final int range;
 

@@ -48,14 +48,7 @@ public class Agricultism {
     public static final CreativeModeTab TAB = new CreativeModeTab("agricultism") {
         @Override
         public ItemStack makeIcon() {
-            return Items.STONE_HOE.getDefaultInstance();
-        }
-
-        @Override
-        public void fillItemList(NonNullList<ItemStack> itemList) {
-            for (RegistryObject<Item> item : ItemRegistry.ITEMS.getEntries()) {
-                itemList.add(item.get().getDefaultInstance());
-            }
+            return ItemRegistry.SEED_POUCH.get().getDefaultInstance();
         }
     };
 

@@ -23,5 +23,9 @@
   "item.agricultism.acacia_bark": "Acacia Bark",
   "item.agricultism.mangrove_bark": "Mangrove Bark",
   "item.agricultism.crimson_bark": "Crimson Bark",
-  "item.agricultism.warped_bark": "Warped Bark"
+  "item.agricultism.warped_bark": "Warped Bark",
+  "block.agricultism.oak_drum": "Oak Drum",
+  "item.agricultism.char": "Char",
+  "item.agricultism.seed_pouch": "Seed Pouch",
+  "item.agricultism.seed_pouch.empty": "No Seeds"
 }

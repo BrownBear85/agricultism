@@ -1,0 +1,7 @@
+{
+  "parent": "agricultism:block/drum_z",
+  "textures": {
+    "0": "minecraft:block/oak_planks",
+    "1": "minecraft:block/oak_log"
+  }
+}
