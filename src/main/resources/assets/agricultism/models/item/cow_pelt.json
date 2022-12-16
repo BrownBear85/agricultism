@@ -1,0 +1,6 @@
+{
+  "parent": "agricultism:item/pelt",
+  "textures": {
+    "layer0": "agricultism:item/cow_pelt"
+  }
+}

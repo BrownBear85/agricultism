@@ -32,5 +32,11 @@
   "item.agricultism.flint_cutting_knife": "Flint Cutting Knife",
   "item.agricultism.iron_cutting_knife": "Iron Cutting Knife",
   "item.agricultism.diamond_cutting_knife": "Diamond Cutting Knife",
-  "item.agricultism.netherite_cutting_knife": "Netherite Cutting Knife"
+  "item.agricultism.netherite_cutting_knife": "Netherite Cutting Knife",
+  "item.agricultism.cow_pelt": "Cow Pelt",
+  "item.agricultism.pig_pelt": "Pig Pelt",
+  "item.agricultism.sheep_pelt": "Sheep Pelt",
+  "item.agricultism.horse_pelt": "Horse Pelt",
+  "item.agricultism.cut_animal_hide": "Cut Hide",
+  "item.agricultism.preserved_animal_hide": "Preserved Hide"
 }

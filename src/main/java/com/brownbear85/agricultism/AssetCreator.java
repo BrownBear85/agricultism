@@ -222,7 +222,11 @@ public final class /**/AssetCreator {
     }
 
     public static void main(String[] args) {
-        createBasicItem("diamond_cutting_knife");
-        createBasicItem("netherite_cutting_knife");
+        createBasicItem("cow_pelt");
+        createBasicItem("pig_pelt");
+        createBasicItem("sheep_pelt");
+        createBasicItem("horse_pelt");
+        createBasicItem("cut_animal_hide");
+        createBasicItem("preserved_animal_hide");
     }
 }
