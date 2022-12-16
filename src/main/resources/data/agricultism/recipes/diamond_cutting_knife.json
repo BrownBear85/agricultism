@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "/": {
+      "item": "minecraft:stick"
+    },
+    "E": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "pattern": [
+    "  E",
+    " E ",
+    "/  "
+  ],
+  "result": {
+    "item": "agricultism:diamond_cutting_knife"
+  }
+}

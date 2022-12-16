@@ -28,5 +28,9 @@
   "item.agricultism.char": "Char",
   "item.agricultism.seed_pouch": "Seed Pouch",
   "item.agricultism.seed_pouch.empty": "No Seeds",
-  "item.agricultism.advanced_seed_pouch": "Advanced Seed Pouch"
+  "item.agricultism.advanced_seed_pouch": "Advanced Seed Pouch",
+  "item.agricultism.flint_cutting_knife": "Flint Cutting Knife",
+  "item.agricultism.iron_cutting_knife": "Iron Cutting Knife",
+  "item.agricultism.diamond_cutting_knife": "Diamond Cutting Knife",
+  "item.agricultism.netherite_cutting_knife": "Netherite Cutting Knife"
 }

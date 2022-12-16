@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "/": {
+      "item": "minecraft:stick"
+    },
+    "E": {
+      "item": "minecraft:flint"
+    }
+  },
+  "pattern": [
+    "  E",
+    " E ",
+    "/  "
+  ],
+  "result": {
+    "item": "agricultism:flint_cutting_knife"
+  }
+}

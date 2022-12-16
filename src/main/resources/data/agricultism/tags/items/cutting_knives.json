@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "agricultism:flint_cutting_knife",
+    "agricultism:iron_cutting_knife",
+    "agricultism:diamond_cutting_knife",
+    "agricultism:netherite_cutting_knife"
+  ]
+}

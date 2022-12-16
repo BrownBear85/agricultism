@@ -222,7 +222,7 @@ public final class /**/AssetCreator {
     }
 
     public static void main(String[] args) {
-        createBasicItem("advanced_seed_pouch");
-
+        createBasicItem("diamond_cutting_knife");
+        createBasicItem("netherite_cutting_knife");
     }
 }

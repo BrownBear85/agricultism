@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "agricultism:item/iron_cutting_knife"
+  }
+}

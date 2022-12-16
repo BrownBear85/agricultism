@@ -2,6 +2,7 @@ package com.brownbear85.agricultism.common.item;
 
 import com.brownbear85.agricultism.Agricultism;
 import com.brownbear85.agricultism.common.item.custom.CreativeWateringCanItem;
+import com.brownbear85.agricultism.common.item.custom.CuttingKnifeItem;
 import com.brownbear85.agricultism.common.item.custom.SeedPouchItem;
 import com.brownbear85.agricultism.common.item.custom.WateringCanItem;
 import net.minecraft.resources.ResourceLocation;
@@ -46,6 +47,10 @@ public class ItemRegistry {
     public static final RegistryObject<Item> SEED_POUCH = ITEMS.register("seed_pouch", () -> new SeedPouchItem(properties().stacksTo(1), 1, 512));
     public static final RegistryObject<Item> ADVANCED_SEED_POUCH = ITEMS.register("advanced_seed_pouch", () -> new SeedPouchItem(properties().stacksTo(1).rarity(Rarity.RARE), 6, 512));
 
+    public static final RegistryObject<Item> FLINT_CUTTING_KNIFE = ITEMS.register("flint_cutting_knife", () -> new CuttingKnifeItem(properties().durability(16)));
+    public static final RegistryObject<Item> IRON_CUTTING_KNIFE = ITEMS.register("iron_cutting_knife", () -> new CuttingKnifeItem(properties().durability(64)));
+    public static final RegistryObject<Item> DIAMOND_CUTTING_KNIFE = ITEMS.register("diamond_cutting_knife", () -> new CuttingKnifeItem(properties().durability(512)));
+    public static final RegistryObject<Item> NETHERITE_CUTTING_KNIFE = ITEMS.register("netherite_cutting_knife", () -> new CuttingKnifeItem(properties().durability(1024)));
 
 
     public static Item.Properties properties() {
@@ -56,6 +61,7 @@ public class ItemRegistry {
 
         public static final TagKey<Item> BARK = create("bark_burnable");
         public static final TagKey<Item> SEEDS = create("seeds");
+        public static final TagKey<Item> CUTTING_KNIVES = create("cutting_knives");
 
         private static TagKey<Item> create(String location) {
             return ItemTags.create(new ResourceLocation(Agricultism.MODID, location));
