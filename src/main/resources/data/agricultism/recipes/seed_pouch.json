@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#L#",
+    "LSL",
+    " L "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:string"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "S": {
+      "tag": "agricultism:seeds"
+    }
+  },
+  "result": {
+    "item": "agricultism:seed_pouch",
+    "count": 1
+  }
+}
