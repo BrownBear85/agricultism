@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "agricultism:cow_pelt",
+    "agricultism:pig_pelt",
+    "agricultism:sheep_pelt",
+    "agricultism:horse_pelt"
+  ]
+}

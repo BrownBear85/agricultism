@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public final class /**/AssetCreator {
+public final class AssetCreator {
     public static final String MOD_PATH = "C:\\Users\\Connor Wright\\Desktop\\Agricultism";
 
     public static class Templates {
@@ -53,7 +53,27 @@ public final class /**/AssetCreator {
                 }
                             
                 """;
+        public static final String peltRecipe = """
+                {
+                  "type": "minecraft:crafting_shapeless",
+                  "ingredients": [
+                    {
+                      "tag": "agricultism:cutting_knives"
+                    },
+                    {
+                      "type": "forge:nbt",
+                      "item": "agricultism:%s",
+                      "nbt": "{quality:%d}"
+                    }
+                  ],
+                  "result": {
+                    "item": "agricultism:cut_animal_hide",
+                    "count": %d
+                  }
+                }
+                """;
     }
+
     /* util methods */
 
     public static void createJSON(String path, String name, String contents) {
@@ -184,6 +204,10 @@ public final class /**/AssetCreator {
         }
     }
 
+    public static void createPeltRecipe(String peltID, int quality) {
+        createJSON("data\\agricultism\\recipes\\pelts", peltID + quality, String.format(Templates.peltRecipe, peltID, quality, quality));
+    }
+
     /* block/item creation methods */
 
     public static void cloneRecipe(String recipe, String[][] strings, String name) {
@@ -222,11 +246,8 @@ public final class /**/AssetCreator {
     }
 
     public static void main(String[] args) {
-        createBasicItem("cow_pelt");
-        createBasicItem("pig_pelt");
-        createBasicItem("sheep_pelt");
-        createBasicItem("horse_pelt");
-        createBasicItem("cut_animal_hide");
-        createBasicItem("preserved_animal_hide");
+        for (int i = 0; i < 3; i++) {
+            createPeltRecipe("horse_pelt", i + 1);
+        }
     }
 }

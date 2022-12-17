@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "agricultism:cutting_knives"
+    },
+    {
+      "type": "forge:nbt",
+      "item": "agricultism:cow_pelt",
+      "nbt": "{quality:1}"
+    }
+  ],
+  "result": {
+    "item": "agricultism:cut_animal_hide",
+    "count": 1
+  }
+}

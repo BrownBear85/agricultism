@@ -66,6 +66,7 @@ public class ItemRegistry {
         public static final TagKey<Item> BARK = create("bark_burnable");
         public static final TagKey<Item> SEEDS = create("seeds");
         public static final TagKey<Item> CUTTING_KNIVES = create("cutting_knives");
+        public static final TagKey<Item> PELTS = create("pelts");
 
         private static TagKey<Item> create(String location) {
             return ItemTags.create(new ResourceLocation(Agricultism.MODID, location));
