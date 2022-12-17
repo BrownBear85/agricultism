@@ -4,15 +4,18 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
-public class PeltItem extends Item {
-    public PeltItem(Item.Properties properties) {
+public class QualityItem extends Item {
+    public final int defaultQuality;
+
+    public QualityItem(int defaultQuality, Item.Properties properties) {
         super(properties);
+        this.defaultQuality = defaultQuality;
     }
 
     @Override
     public @NotNull ItemStack getDefaultInstance() {
         ItemStack stack = super.getDefaultInstance();
-        stack.getOrCreateTag().putInt("quality", 3);
+        stack.getOrCreateTag().putInt("quality", defaultQuality);
         return stack;
     }
 

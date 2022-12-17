@@ -49,10 +49,10 @@ public class ItemRegistry {
     public static final RegistryObject<Item> DIAMOND_CUTTING_KNIFE = ITEMS.register("diamond_cutting_knife", () -> new CuttingKnifeItem(properties().durability(512)));
     public static final RegistryObject<Item> NETHERITE_CUTTING_KNIFE = ITEMS.register("netherite_cutting_knife", () -> new CuttingKnifeItem(properties().durability(1024)));
 
-    public static final RegistryObject<Item> COW_PELT = ITEMS.register("cow_pelt", () -> new PeltItem(properties().stacksTo(1)));
-    public static final RegistryObject<Item> PIG_PELT = ITEMS.register("pig_pelt", () -> new PeltItem(properties().stacksTo(1)));
-    public static final RegistryObject<Item> SHEEP_PELT = ITEMS.register("sheep_pelt", () -> new PeltItem(properties().stacksTo(1)));
-    public static final RegistryObject<Item> HORSE_PELT = ITEMS.register("horse_pelt", () -> new PeltItem(properties().stacksTo(1)));
+    public static final RegistryObject<Item> COW_PELT = ITEMS.register("cow_pelt", () -> new QualityItem(1, properties().stacksTo(1)));
+    public static final RegistryObject<Item> PIG_PELT = ITEMS.register("pig_pelt", () -> new QualityItem(1, properties().stacksTo(1)));
+    public static final RegistryObject<Item> SHEEP_PELT = ITEMS.register("sheep_pelt", () -> new QualityItem(1, properties().stacksTo(1)));
+    public static final RegistryObject<Item> HORSE_PELT = ITEMS.register("horse_pelt", () -> new QualityItem(1, properties().stacksTo(1)));
     public static final RegistryObject<Item> CUT_ANIMAL_HIDE = ITEMS.register("cut_animal_hide", () -> new Item(properties()));
     public static final RegistryObject<Item> PRESERVED_ANIMAL_HIDE = ITEMS.register("preserved_animal_hide", () -> new Item(properties()));
 

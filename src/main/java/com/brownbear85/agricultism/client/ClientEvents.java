@@ -3,7 +3,7 @@ package com.brownbear85.agricultism.client;
 import com.brownbear85.agricultism.Agricultism;
 import com.brownbear85.agricultism.client.tooltip.ClientQualityTooltip;
 import com.brownbear85.agricultism.client.tooltip.QualityTooltip;
-import com.brownbear85.agricultism.common.item.custom.PeltItem;
+import com.brownbear85.agricultism.common.item.custom.QualityItem;
 import com.mojang.datafixers.util.Either;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterClientTooltipComponentFactoriesEvent;
@@ -27,8 +27,8 @@ public class ClientEvents {
 
         @SubscribeEvent
         public static void renderTooltip(RenderTooltipEvent.GatherComponents event) {
-            if (PeltItem.getQuality(event.getItemStack()) > 0) {
-                event.getTooltipElements().add(Either.right(new QualityTooltip(PeltItem.getQuality(event.getItemStack()))));
+            if (QualityItem.getQuality(event.getItemStack()) > 0) {
+                event.getTooltipElements().add(Either.right(new QualityTooltip(QualityItem.getQuality(event.getItemStack()))));
             }
         }
     }
