@@ -18,10 +18,7 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ClickAction;
 import net.minecraft.world.inventory.Slot;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.ItemUtils;
-import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -40,6 +37,19 @@ public class SeedPouchItem extends Item {
         super(properties);
         this.storageSize = storage;
         this.stackSize = stack;
+    }
+
+    public static ItemStack filledAdvancedSeedPouch() {
+        ItemStack stack = new ItemStack(ItemRegistry.ADVANCED_SEED_POUCH.get());
+        ListTag list = new ListTag();
+        list.add(SeedPouchItem.of(Items.WHEAT_SEEDS, 512));
+        list.add(SeedPouchItem.of(ItemRegistry.POTATO_SEEDS.get(), 512));
+        list.add(SeedPouchItem.of(ItemRegistry.CARROT_SEEDS.get(), 512));
+        list.add(SeedPouchItem.of(Items.BEETROOT_SEEDS, 512));
+        list.add(SeedPouchItem.of(Items.PUMPKIN_SEEDS, 512));
+        list.add(SeedPouchItem.of(Items.MELON_SEEDS, 512));
+        stack.getOrCreateTag().put("Items", list);
+        return stack;
     }
 
     @Override

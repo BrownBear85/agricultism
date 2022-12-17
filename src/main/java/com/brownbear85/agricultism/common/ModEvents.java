@@ -1,10 +1,8 @@
 package com.brownbear85.agricultism.common;
 
 import com.brownbear85.agricultism.Agricultism;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.TagKey;
@@ -18,9 +16,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FarmBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.HitResult;
-import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.ToolActions;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -37,7 +32,7 @@ import static com.brownbear85.agricultism.Agricultism.MODID;
 public class ModEvents {
 
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
-    public static class ModBusEvents {
+    public static class CommonModEvents {
 
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
@@ -46,7 +41,7 @@ public class ModEvents {
     }
 
     @Mod.EventBusSubscriber(modid = MODID)
-    public static class ForgeBusEvents {
+    public static class CommonForgeEvents {
 
         @SubscribeEvent
         public static void blockModified(BlockEvent.BlockToolModificationEvent event) {
