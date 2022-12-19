@@ -40,5 +40,6 @@
   "item.agricultism.cut_animal_hide": "Cut Hide",
   "item.agricultism.preserved_animal_hide": "Preserved Hide",
   "container.oil_drum": "Oil Drum",
-  "container.oil_drum.vegetable_oil": "Vegetable Oil"
+  "container.oil_drum.vegetable_oil": "Vegetable Oil",
+  "item.agricultism.vegetable_oil_bottle": "Bottle of Vegetable Oil"
 }
