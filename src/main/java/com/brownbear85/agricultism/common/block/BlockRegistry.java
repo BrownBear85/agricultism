@@ -6,6 +6,7 @@ import com.brownbear85.agricultism.common.item.ItemRegistry;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.registries.DeferredRegister;
@@ -19,7 +20,7 @@ public class BlockRegistry {
 
 
     public static final RegistryObject<Block> OAK_DRUM = register("oak_drum",
-            () -> new DrumBlock(BlockBehaviour.Properties.of(Material.WOOD).dynamicShape().noOcclusion()), ItemRegistry.properties());
+            () -> new DrumBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).dynamicShape().noOcclusion().strength(3.0f, 2.0f)), ItemRegistry.properties());
 
 
 

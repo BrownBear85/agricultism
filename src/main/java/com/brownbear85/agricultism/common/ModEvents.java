@@ -11,6 +11,7 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.PickaxeItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -82,6 +83,11 @@ public class ModEvents {
             ItemStack stack = event.getItemStack();
             Player player = event.getEntity();
             InteractionHand hand = event.getHand();
+
+            if (stack.is(Items.POTATO) || stack.is(Items.CARROT)) {
+                event.setCanceled(true);
+            }
+
             if (stack.getItem() instanceof PickaxeItem) {
                 if (state.getBlock() instanceof FarmBlock) {
                     player.swing(hand);
@@ -89,7 +95,7 @@ public class ModEvents {
                         entity.broadcastBreakEvent(hand);
                     });
 
-                    level.playSeededSound(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, SoundEvents.DRIPSTONE_BLOCK_FALL, SoundSource.PLAYERS, 1.0F, 1.0F, level.random.nextLong());
+                    level.playSound(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, SoundEvents.DRIPSTONE_BLOCK_FALL, SoundSource.PLAYERS, 1.0F, 1.0F);
 
                     FarmBlock.turnToDirt(state, level, pos);
                     return;
@@ -102,7 +108,7 @@ public class ModEvents {
                         entity.broadcastBreakEvent(hand);
                     });
 
-                    level.playSeededSound(null, belowPos.getX() + 0.5, belowPos.getY() + 0.5, belowPos.getZ() + 0.5, SoundEvents.DRIPSTONE_BLOCK_FALL, SoundSource.PLAYERS, 1.0F, 1.0F, level.random.nextLong());
+                    level.playSound(null, belowPos.getX() + 0.5, belowPos.getY() + 0.5, belowPos.getZ() + 0.5, SoundEvents.DRIPSTONE_BLOCK_FALL, SoundSource.PLAYERS, 1.0F, 1.0F);
 
                     FarmBlock.turnToDirt(below, level, belowPos);
                 }

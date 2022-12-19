@@ -5,7 +5,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -65,7 +64,7 @@ public class HoeActions {
                         Block.popResource(serverLevel, pos, drop);
                     }
                 }
-                serverLevel.playSeededSound(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, state.getBlock().getSoundType(state, level, pos, null).getBreakSound(), SoundSource.BLOCKS, 1.0F, 1.0F, level.random.nextLong());
+                serverLevel.playSound(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, state.getBlock().getSoundType(state, level, pos, null).getBreakSound(), SoundSource.BLOCKS, 1.0F, 1.0F);
                 serverLevel.sendParticles(new BlockParticleOption(ParticleTypes.BLOCK, state), pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 30, 0.3, 0.3, 0.3, 0);
             }
         }
@@ -73,14 +72,11 @@ public class HoeActions {
     }
 
     @Mod.EventBusSubscriber(modid = MODID)
-    public static class ForgeBusEvents {
+    public static class CommonForgeEvents {
         @SubscribeEvent
         public static void playerRightClickedBlock(PlayerInteractEvent.RightClickBlock event) {
             ItemStack stack = event.getItemStack();
 
-            if (stack.is(Items.POTATO) || stack.is(Items.CARROT)) {
-                event.setCanceled(true);
-            }
             if (stack.getItem() instanceof HoeItem) {
                 Player player = event.getEntity();
                 Level level = player.getLevel();

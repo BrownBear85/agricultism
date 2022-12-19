@@ -47,17 +47,17 @@ public class WateringCanItem extends Item implements IWaterHolder {
                     return InteractionResultHolder.fail(stack);
                 }
                 setWater(stack, getCapacity());
-                level.playSeededSound(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, SoundEvents.BUCKET_FILL, SoundSource.PLAYERS, 1.0F, 1.0F, level.random.nextLong());
+                level.playSound(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, SoundEvents.BUCKET_FILL, SoundSource.PLAYERS, 1.0F, 1.0F);
                 return InteractionResultHolder.success(stack);
             } else {
                 int usedRange = player.isCrouching() ? 0 : range;
                 if (!player.getAbilities().instabuild) {
                     if (!subtractWater(stack, (usedRange * 2 + 1) * (usedRange * 2 + 1) * 250, true)) {
-                        level.playSeededSound(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, SoundEvents.SOUL_SAND_STEP, SoundSource.PLAYERS, 1.0F, 1.0F, level.random.nextLong());
+                        level.playSound(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, SoundEvents.SOUL_SAND_STEP, SoundSource.PLAYERS, 1.0F, 1.0F);
                         return InteractionResultHolder.consume(stack);
                     }
                 }
-                level.playSeededSound(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, SoundEvents.BUCKET_EMPTY_TADPOLE, SoundSource.PLAYERS, 1.0F, 1.0F, level.random.nextLong());
+                level.playSound(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, SoundEvents.BUCKET_EMPTY_TADPOLE, SoundSource.PLAYERS, 1.0F, 1.0F);
                 for (BlockPos blockpos : BlockPos.betweenClosed(pos.offset(-usedRange, 0, -usedRange), pos.offset(usedRange, -1, usedRange))) {
                     BlockState blockstate = level.getBlockState(blockpos);
                     if (blockstate.getBlock() instanceof FarmBlock) {

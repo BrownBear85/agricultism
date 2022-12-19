@@ -38,5 +38,7 @@
   "item.agricultism.sheep_pelt": "Sheep Pelt",
   "item.agricultism.horse_pelt": "Horse Pelt",
   "item.agricultism.cut_animal_hide": "Cut Hide",
-  "item.agricultism.preserved_animal_hide": "Preserved Hide"
+  "item.agricultism.preserved_animal_hide": "Preserved Hide",
+  "container.oil_drum": "Oil Drum",
+  "container.oil_drum.vegetable_oil": "Vegetable Oil"
 }

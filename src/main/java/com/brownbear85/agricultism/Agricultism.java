@@ -1,11 +1,15 @@
 package com.brownbear85.agricultism;
 
+import com.brownbear85.agricultism.common.block.BlockEntityRegistry;
 import com.brownbear85.agricultism.common.block.BlockRegistry;
 import com.brownbear85.agricultism.common.enchantment.EnchantmentRegistry;
 import com.brownbear85.agricultism.common.item.ItemRegistry;
 import com.brownbear85.agricultism.common.item.custom.SeedPouchItem;
+import com.brownbear85.agricultism.common.menu.DrumBlockScreen;
+import com.brownbear85.agricultism.common.menu.MenuRegistry;
 import com.mojang.logging.LogUtils;
 import it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.Registry;
 import net.minecraft.nbt.CompoundTag;
@@ -44,8 +48,10 @@ public class Agricultism {
         MinecraftForge.EVENT_BUS.register(this);
 
         BlockRegistry.BLOCKS.register(bus);
+        BlockEntityRegistry.BLOCK_ENTITY_TYPES.register(bus);
         ItemRegistry.ITEMS.register(bus);
         EnchantmentRegistry.ENCHANTMENTS.register(bus);
+        MenuRegistry.MENUS.register(bus);
 
         bus.addListener(this::commonSetup);
     }
@@ -74,6 +80,8 @@ public class Agricultism {
     public static final ArrayList<Block> STRIPPED_LOGS = new ArrayList<>(List.of(Blocks.STRIPPED_OAK_LOG, Blocks.STRIPPED_OAK_WOOD, Blocks.STRIPPED_SPRUCE_LOG, Blocks.STRIPPED_SPRUCE_WOOD, Blocks.STRIPPED_BIRCH_LOG, Blocks.STRIPPED_BIRCH_WOOD, Blocks.STRIPPED_JUNGLE_LOG, Blocks.STRIPPED_JUNGLE_WOOD, Blocks.STRIPPED_ACACIA_LOG, Blocks.STRIPPED_ACACIA_WOOD, Blocks.STRIPPED_DARK_OAK_LOG, Blocks.STRIPPED_DARK_OAK_WOOD, Blocks.STRIPPED_MANGROVE_LOG, Blocks.STRIPPED_MANGROVE_WOOD, Blocks.STRIPPED_CRIMSON_STEM, Blocks.STRIPPED_CRIMSON_HYPHAE, Blocks.STRIPPED_WARPED_STEM, Blocks.STRIPPED_WARPED_HYPHAE));
 
     private void commonSetup(final FMLCommonSetupEvent event) {
+        MenuScreens.register(MenuRegistry.DRUM_BLOCK_MENU.get(), DrumBlockScreen::new);
+
         BARK_2_LOGS_MAP.put(ItemRegistry.OAK_BARK.get(), BlockTags.OAK_LOGS);
         BARK_2_LOGS_MAP.put(ItemRegistry.SPRUCE_BARK.get(), BlockTags.SPRUCE_LOGS);
         BARK_2_LOGS_MAP.put(ItemRegistry.BIRCH_BARK.get(), BlockTags.BIRCH_LOGS);
