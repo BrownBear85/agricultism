@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 public class DrumBlockScreen extends AbstractContainerScreen<DrumBlockMenu> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(Agricultism.MODID, "textures/gui/drum_block_gui.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(Agricultism.MODID, "textures/gui/drum_block_gui_wood.png");
 
     private final ArrayList<Component> oilTooltip = new ArrayList<>(2);
 
@@ -61,6 +61,12 @@ public class DrumBlockScreen extends AbstractContainerScreen<DrumBlockMenu> {
         renderBackground(pPoseStack);
         super.render(pPoseStack, pMouseX, pMouseY, pPartialTick);
         renderTooltip(pPoseStack, pMouseX, pMouseY);
+    }
+
+    @Override
+    protected void renderLabels(PoseStack pPoseStack, int pMouseX, int pMouseY) {
+        this.font.draw(pPoseStack, this.title, (float) this.titleLabelX, (float) this.titleLabelY, 3352598);
+        this.font.draw(pPoseStack, this.playerInventoryTitle, (float) this.inventoryLabelX, (float) this.inventoryLabelY, 3352598);
     }
 
     @Override
