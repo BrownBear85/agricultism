@@ -2,6 +2,7 @@ package com.brownbear85.agricultism.common.block.custom;
 
 import com.brownbear85.agricultism.common.block.BlockEntityRegistry;
 import com.brownbear85.agricultism.common.block.entities.DrumBlockEntity;
+import com.brownbear85.agricultism.common.item.ItemRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -57,6 +58,7 @@ public class DrumBlock extends BaseEntityBlock {
         super(properties);
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         ItemStack stack = pPlayer.getItemInHand(pHand);
@@ -71,7 +73,7 @@ public class DrumBlock extends BaseEntityBlock {
                         serverLevel.playSound(null, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.NEUTRAL, 1.0F, 1.0F);
                     }
                     stack.shrink(1);
-                    if (!pPlayer.addItem(new ItemStack(Items.ACACIA_BOAT))) {
+                    if (!pPlayer.addItem(new ItemStack(ItemRegistry.VEGETABLE_OIL_BOTTLE.get()))) {
                         Vec3 pos = pPlayer.getEyePosition();
                         ItemEntity itemEntity = new ItemEntity(pLevel, pos.x(), pos.y(), pos.z(), new ItemStack(Items.ACACIA_BOAT));
                         itemEntity.setDeltaMovement(pPlayer.getLookAngle().multiply(0.2, 0.2, 0.2));

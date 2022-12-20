@@ -30,6 +30,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> WARPED_BARK = ITEMS.register("warped_bark", () -> new Item(properties()));
 
     public static final RegistryObject<Item> CHAR = ITEMS.register("char", () -> new Item(properties()));
+    public static final RegistryObject<Item> VEGETABLE_OIL_BOTTLE = ITEMS.register("vegetable_oil_bottle", () -> new Item(properties().stacksTo(16)));
 
     public static final RegistryObject<Item> WOODEN_WATERING_CAN = ITEMS.register("wooden_watering_can", () -> new WateringCanItem(properties().stacksTo(1), 1000, 0));
     public static final RegistryObject<Item> STONE_WATERING_CAN = ITEMS.register("stone_watering_can", () -> new WateringCanItem(properties().stacksTo(1), 4000, 0));

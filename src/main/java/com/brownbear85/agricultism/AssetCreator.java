@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public final class AssetCreator {
-    public static final String MOD_PATH = "C:\\Users\\Connor Wright\\Desktop\\Agricultism";
+    public static final String MOD_PATH = System.getProperty("user.dir");
 
     public static class Templates {
         public static final String basicBlockstate = """
@@ -246,8 +246,6 @@ public final class AssetCreator {
     }
 
     public static void main(String[] args) {
-        for (int i = 0; i < 3; i++) {
-            createPeltRecipe("horse_pelt", i + 1);
-        }
+        createBasicItem("vegetable_oil_bottle");
     }
 }

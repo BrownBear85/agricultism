@@ -30,7 +30,7 @@ import java.util.Optional;
 public class DrumBlockEntity extends BaseContainerBlockEntity implements WorldlyContainer {
 
     public static final int STORAGE_SIZE = 6;
-    public static final int PROCESS_TIME = 200;
+    public static final int PROCESS_TIME = 30;
     public static final int MAX_OIL = 1000;
     public static final int OIL_PER_ITEM = 10;
 
