@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "___",
+        "OBO",
+        "U U"
+    ],
+    "key": {
+        "_": {
+            "item": "minecraft:oak_slab"
+        },
+        "O": {
+            "item": "minecraft:oak_planks"
+        },
+        "B": {
+            "item": "minecraft:bucket"
+        },
+        "U": {
+            "item": "minecraft:oak_log"
+        }
+    },
+    "result": {
+        "item": "agricultism:oak_drum",
+        "count": 1
+    }
+}

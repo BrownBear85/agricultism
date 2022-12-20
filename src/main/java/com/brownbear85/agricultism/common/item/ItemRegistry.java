@@ -5,6 +5,9 @@ import com.brownbear85.agricultism.common.item.custom.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.Blocks;
@@ -30,7 +33,11 @@ public class ItemRegistry {
     public static final RegistryObject<Item> WARPED_BARK = ITEMS.register("warped_bark", () -> new Item(properties()));
 
     public static final RegistryObject<Item> CHAR = ITEMS.register("char", () -> new Item(properties()));
-    public static final RegistryObject<Item> VEGETABLE_OIL_BOTTLE = ITEMS.register("vegetable_oil_bottle", () -> new Item(properties().stacksTo(16)));
+
+    public static final RegistryObject<Item> VEGETABLE_OIL_BOTTLE = ITEMS.register("vegetable_oil_bottle", () -> new DrinkableItem(properties().stacksTo(16)
+            .food(new FoodProperties.Builder().alwaysEat().nutrition(6).saturationMod(0.2F)
+                    .effect(() -> new MobEffectInstance(MobEffects.CONFUSION, 120), 1.0F)
+                    .effect(() -> new MobEffectInstance(MobEffects.POISON, 80), 0.5F).build())));
 
     public static final RegistryObject<Item> WOODEN_WATERING_CAN = ITEMS.register("wooden_watering_can", () -> new WateringCanItem(properties().stacksTo(1), 1000, 0));
     public static final RegistryObject<Item> STONE_WATERING_CAN = ITEMS.register("stone_watering_can", () -> new WateringCanItem(properties().stacksTo(1), 4000, 0));

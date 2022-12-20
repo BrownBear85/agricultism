@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 public class DrumBlockScreen extends AbstractContainerScreen<DrumBlockMenu> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(Agricultism.MODID, "textures/gui/drum_block_gui_wood.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(Agricultism.MODID, "textures/gui/drum_block_gui_test.png");
 
     private final ArrayList<Component> oilTooltip = new ArrayList<>(2);
 
