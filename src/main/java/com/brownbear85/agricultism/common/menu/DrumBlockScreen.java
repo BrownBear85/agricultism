@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 public class DrumBlockScreen extends AbstractContainerScreen<DrumBlockMenu> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(Agricultism.MODID, "textures/gui/drum_block_gui_test.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(Agricultism.MODID, "textures/gui/drum_block_gui_wood.png");
 
     private final ArrayList<Component> oilTooltip = new ArrayList<>(2);
 
@@ -65,8 +65,14 @@ public class DrumBlockScreen extends AbstractContainerScreen<DrumBlockMenu> {
 
     @Override
     protected void renderLabels(PoseStack pPoseStack, int pMouseX, int pMouseY) {
-        this.font.draw(pPoseStack, this.title, (float) this.titleLabelX, (float) this.titleLabelY, 3352598);
-        this.font.draw(pPoseStack, this.playerInventoryTitle, (float) this.inventoryLabelX, (float) this.inventoryLabelY, 3352598);
+        int color = 3287831;
+
+        try {
+            color = Integer.parseInt(this.title.getString());
+        } catch (Exception ignored) {}
+
+        this.font.draw(pPoseStack, this.title, (float) this.titleLabelX, (float) this.titleLabelY, color);
+        this.font.draw(pPoseStack, this.playerInventoryTitle, (float) this.inventoryLabelX, (float) this.inventoryLabelY, color);
     }
 
     @Override
@@ -77,6 +83,14 @@ public class DrumBlockScreen extends AbstractContainerScreen<DrumBlockMenu> {
             oilTooltip.set(1, Component.literal(menu.data.get(1) + " mL").withStyle(ChatFormatting.DARK_GRAY));
             this.renderTooltip(pPoseStack, oilTooltip, Optional.empty(), pMouseX, pMouseY);
         }
+    }
+
+    @Override
+    public boolean mouseClicked(double pMouseX, double pMouseY, int pButton) {
+        if (mouseOnOilBar((int) pMouseX, (int) pMouseY) && pButton == 1) {
+            System.out.println("right clicked oil bar");
+        }
+        return super.mouseClicked(pMouseX, pMouseY, pButton);
     }
 
     private boolean mouseOnOilBar(int pMouseX, int pMouseY) {
