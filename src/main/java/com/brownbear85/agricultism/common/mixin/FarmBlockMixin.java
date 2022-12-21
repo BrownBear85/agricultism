@@ -24,18 +24,15 @@ public class FarmBlockMixin {
 
         int moisture = state.getValue(FarmBlock.MOISTURE);
         if (!isNearWater(level, pos) && !level.isRainingAt(pos.above())) {
-            if (moisture == 1 && rand > 0.9) {
-                FarmBlock.turnToDirt(state, level, pos);
-            } else if ((moisture == 7 && rand > 0.98) || (moisture > 0 && moisture < 7 && rand > 0.7)) {
-                level.setBlock(pos, state.setValue(FarmBlock.MOISTURE, moisture - 1), 2);
+            if (moisture > 0 && rand > 0.98) {
+                level.setBlock(pos, state.setValue(FarmBlock.MOISTURE, 0), 2);
             }
-        } else if (moisture < 7) {
-            level.setBlock(pos, state.setValue(FarmBlock.MOISTURE, 7), 2);
         }
     }
 
     private static boolean isNearWater(LevelReader levelReader, BlockPos pos) {
         boolean foundWater = false;
+
         BlockState state = levelReader.getBlockState(pos);
         for (BlockPos blockpos : BlockPos.betweenClosed(pos.offset(-RANGE, 0, -RANGE), pos.offset(RANGE, 1, RANGE))) {
             if (state.canBeHydrated(levelReader, pos, levelReader.getFluidState(blockpos), blockpos)) {
