@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "   ",
+        "   ",
+        "BBB"
+    ],
+    "key": {
+        "B": {
+            "item": "agricultism:warped_bark"
+        }
+    },
+    "result": {
+        "item": "agricultism:warped_carpet",
+        "count": 2
+    }
+}

@@ -41,5 +41,14 @@
   "item.agricultism.preserved_animal_hide": "Preserved Hide",
   "container.oil_drum": "Oil Drum",
   "container.oil_drum.vegetable_oil": "Vegetable Oil",
-  "item.agricultism.vegetable_oil_bottle": "Bottle of Vegetable Oil"
+  "item.agricultism.vegetable_oil_bottle": "Bottle of Vegetable Oil",
+  "block.agricultism.oak_carpet": "Oak Carpet",
+  "block.agricultism.spruce_carpet": "Spruce Carpet",
+  "block.agricultism.birch_carpet": "Birch Carpet",
+  "block.agricultism.jungle_carpet": "Jungle Carpet",
+  "block.agricultism.acacia_carpet": "Acacia Carpet",
+  "block.agricultism.dark_oak_carpet": "Dark Oak Carpet",
+  "block.agricultism.mangrove_carpet": "Mangrove Carpet",
+  "block.agricultism.crimson_carpet": "Crimson Carpet",
+  "block.agricultism.warped_carpet": "Warped Carpet"
 }

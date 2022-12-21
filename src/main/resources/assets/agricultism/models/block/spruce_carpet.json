@@ -1,0 +1,6 @@
+{
+  "parent": "agricultism:block/wood_carpet",
+  "textures": {
+    "log": "minecraft:block/spruce_log"
+  }
+}

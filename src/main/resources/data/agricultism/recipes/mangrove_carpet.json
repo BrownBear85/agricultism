@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "BB"
+    ],
+    "key": {
+        "B": {
+            "item": "agricultism:mangrove_bark"
+        }
+    },
+    "result": {
+        "item": "agricultism:mangrove_carpet",
+        "count": 2
+    }
+}

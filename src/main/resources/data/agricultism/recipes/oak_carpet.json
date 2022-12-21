@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "BB"
+    ],
+    "key": {
+        "B": {
+            "item": "agricultism:oak_bark"
+        }
+    },
+    "result": {
+        "item": "agricultism:oak_carpet",
+        "count": 2
+    }
+}

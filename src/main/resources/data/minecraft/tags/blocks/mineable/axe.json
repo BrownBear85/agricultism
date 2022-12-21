@@ -1,0 +1,14 @@
+{
+  "replace": "false",
+  "values": [
+    "oak_carpet",
+    "spruce_carpet",
+    "birch_carpet",
+    "jungle_carpet",
+    "acacia_carpet",
+    "dark_oak_carpet",
+    "mangrove_carpet",
+    "crimson_carpet",
+    "warped_carpet"
+  ]
+}
