@@ -27,7 +27,7 @@ public class ClientEvents {
 
         @SubscribeEvent
         public static void renderTooltip(RenderTooltipEvent.GatherComponents event) {
-            if (QualityItem.getQuality(event.getItemStack()) > 0) {
+            if (QualityItem.getQuality(event.getItemStack()) != 0) {
                 event.getTooltipElements().add(Either.right(new QualityTooltip(QualityItem.getQuality(event.getItemStack()))));
             }
         }

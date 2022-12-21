@@ -25,7 +25,11 @@ public class ClientQualityTooltip implements ClientTooltipComponent {
 
     @Override
     public void renderImage(Font font, int x, int y, PoseStack stack, ItemRenderer itemRenderer, int blitOffset) {
-        for (int i = 0; i < quality; i++) {
+        int stars = quality;
+        if (quality == -1) {
+            stars = (int) (System.currentTimeMillis() % 1500 / 500);
+        }
+        for (int i = 0; i < stars; i++) {
             blit(stack, x + i * 8 - 1, y - 1, blitOffset);
         }
     }
