@@ -1,14 +1,17 @@
 package com.brownbear85.agricultism.common.menu;
 
 import com.brownbear85.agricultism.Agricultism;
+import com.brownbear85.agricultism.common.item.ItemRegistry;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.item.ItemStack;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -83,14 +86,6 @@ public class DrumBlockScreen extends AbstractContainerScreen<DrumBlockMenu> {
             oilTooltip.set(1, Component.literal(menu.data.get(1) + " mL").withStyle(ChatFormatting.DARK_GRAY));
             this.renderTooltip(pPoseStack, oilTooltip, Optional.empty(), pMouseX, pMouseY);
         }
-    }
-
-    @Override
-    public boolean mouseClicked(double pMouseX, double pMouseY, int pButton) {
-        if (mouseOnOilBar((int) pMouseX, (int) pMouseY) && pButton == 1) {
-            System.out.println("right clicked oil bar");
-        }
-        return super.mouseClicked(pMouseX, pMouseY, pButton);
     }
 
     private boolean mouseOnOilBar(int pMouseX, int pMouseY) {
