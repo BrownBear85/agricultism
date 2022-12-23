@@ -42,6 +42,7 @@ public class DrumBlockEntity extends BaseContainerBlockEntity implements Worldly
 
     public DrumBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(BlockEntityRegistry.DRUM_BLOCK_ENTITY.get(), pPos, pBlockState);
+
         this.data = new ContainerData() {
             @Override
             public int get(int pIndex) {
@@ -127,6 +128,36 @@ public class DrumBlockEntity extends BaseContainerBlockEntity implements Worldly
     public <T> LazyOptional<T> getCapability( Capability<T> cap, @Nullable Direction side) {
         return cap == ForgeCapabilities.ITEM_HANDLER ? optional.cast() : super.getCapability(cap, side);
     }
+
+//    @Override
+//    public void setLevel(Level pLevel) {
+//        super.setLevel(pLevel);
+//        if (level != null) {
+//            if (!level.isClientSide) {
+//                waterTicket = FarmlandWaterManager.addAABBTicket(level, new AABB(worldPosition.offset(2, -1, 2), worldPosition.offset(-1, 0, -1)));
+//            }
+//        }
+//    }
+//
+//    @Override
+//    public void invalidateCaps() {
+//        super.invalidateCaps();
+//        if (level != null) {
+//            if (!level.isClientSide && waterTicket != null) {
+//                waterTicket.invalidate();
+//            }
+//        }
+//    }
+//
+//    @Override
+//    public void reviveCaps() {
+//        super.reviveCaps();
+//        if (level != null) {
+//            if (!level.isClientSide && waterTicket != null) {
+//                waterTicket.validate();
+//            }
+//        }
+//    }
 
     /* item handling */
 

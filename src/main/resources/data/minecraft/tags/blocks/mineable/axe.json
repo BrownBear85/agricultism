@@ -1,14 +1,14 @@
 {
   "replace": "false",
   "values": [
-    "oak_carpet",
-    "spruce_carpet",
-    "birch_carpet",
-    "jungle_carpet",
-    "acacia_carpet",
-    "dark_oak_carpet",
-    "mangrove_carpet",
-    "crimson_carpet",
-    "warped_carpet"
+    "agricultism:oak_carpet",
+    "agricultism:spruce_carpet",
+    "agricultism:birch_carpet",
+    "agricultism:jungle_carpet",
+    "agricultism:acacia_carpet",
+    "agricultism:dark_oak_carpet",
+    "agricultism:mangrove_carpet",
+    "agricultism:crimson_carpet",
+    "agricultism:warped_carpet"
   ]
 }
