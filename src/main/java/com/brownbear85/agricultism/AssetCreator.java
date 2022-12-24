@@ -246,15 +246,6 @@ public final class AssetCreator {
     }
 
     public static void main(String[] args) {
-        createBasicBlock("oak_carpet");
-        createBasicBlock("spruce_carpet");
-        createBasicBlock("birch_carpet");
-        createBasicBlock("jungle_carpet");
-        createBasicBlock("acacia_carpet");
-        createBasicBlock("dark_oak_carpet");
-        createBasicBlock("mangrove_carpet");
-        createBasicBlock("crimson_carpet");
-        createBasicBlock("warped_carpet");
-        createBasicBlock("oak_drum");
+        createBasicBlock("empty_crate");
     }
 }

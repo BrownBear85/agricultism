@@ -32,8 +32,6 @@ public class ItemRegistry {
     public static final RegistryObject<Item> CRIMSON_BARK = ITEMS.register("crimson_bark", () -> new Item(properties()));
     public static final RegistryObject<Item> WARPED_BARK = ITEMS.register("warped_bark", () -> new Item(properties()));
 
-    public static final RegistryObject<Item> CHAR = ITEMS.register("char", () -> new Item(properties()));
-
     public static final RegistryObject<Item> VEGETABLE_OIL_BOTTLE = ITEMS.register("vegetable_oil_bottle", () -> new DrinkableItem(properties().stacksTo(16)
             .food(new FoodProperties.Builder().alwaysEat().nutrition(6).saturationMod(0.2F)
                     .effect(() -> new MobEffectInstance(MobEffects.CONFUSION, 120), 1.0F)
