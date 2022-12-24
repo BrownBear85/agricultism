@@ -10,6 +10,7 @@ import net.minecraftforge.client.event.RegisterClientTooltipComponentFactoriesEv
 import net.minecraftforge.client.event.RenderTooltipEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 public class ClientEvents {
 
@@ -24,6 +25,10 @@ public class ClientEvents {
 
     @Mod.EventBusSubscriber(modid = Agricultism.MODID, value = Dist.CLIENT)
     public static class ClientForgeEvents {
+
+        @SubscribeEvent
+        public static void clientSetup(FMLClientSetupEvent event) {
+        }
 
         @SubscribeEvent
         public static void renderTooltip(RenderTooltipEvent.GatherComponents event) {

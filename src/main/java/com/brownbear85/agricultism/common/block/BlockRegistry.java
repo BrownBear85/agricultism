@@ -35,6 +35,8 @@ public class BlockRegistry {
     public static final RegistryObject<Block> CRIMSON_CARPET = register("crimson_carpet", () -> new CarpetBlock(BlockBehaviour.Properties.of(Material.DECORATION).strength(1.0F).sound(SoundType.WOOD)), ItemRegistry.properties());
     public static final RegistryObject<Block> WARPED_CARPET = register("warped_carpet", () -> new CarpetBlock(BlockBehaviour.Properties.copy(CRIMSON_CARPET.get())), ItemRegistry.properties());
 
+    public static final RegistryObject<Block> EMPTY_CRATE = register("empty_crate", () -> new Block(BlockBehaviour.Properties.of(Material.WOOD).strength(0.7F).sound(SoundType.WOOD).noOcclusion()), ItemRegistry.properties());
+
     private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> sup, Item.Properties properties) {
         RegistryObject<T> block = BLOCKS.register(name, sup);
         ItemRegistry.ITEMS.register(name, () -> new BlockItem(block.get(), properties));

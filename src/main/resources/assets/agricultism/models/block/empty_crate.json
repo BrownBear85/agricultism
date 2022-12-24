@@ -1,0 +1,23 @@
+{
+  "parent": "block/block",
+  "render_type": "cutout",
+  "textures": {
+    "bottom": "agricultism:block/empty_crate_bottom",
+    "top": "agricultism:block/empty_crate_top",
+    "side": "agricultism:block/empty_crate_side",
+    "particle": "agricultism:block/empty_crate_side"
+  },
+  "elements": [
+    {   "from": [ 0, 0, 0 ],
+      "to": [ 16, 16, 16 ],
+      "faces": {
+        "down":  { "uv": [ 0, 0, 16, 16 ], "texture": "#bottom", "cullface": "up" },
+        "up":    { "uv": [ 0, 0, 16, 16 ], "texture": "#top", "cullface": "down" },
+        "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#side", "cullface": "south" },
+        "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#side", "cullface": "north" },
+        "west":  { "uv": [ 0, 0, 16, 16 ], "texture": "#side", "cullface": "east" },
+        "east":  { "uv": [ 0, 0, 16, 16 ], "texture": "#side", "cullface": "west" }
+      }
+    }
+  ]
+}
