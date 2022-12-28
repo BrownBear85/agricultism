@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ccc",
+    "ASA",
+    " S "
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:diamond"
+    },
+    "A": {
+      "item": "agricultism:diamond_watering_can"
+    },
+    "S": {
+      "item": "minecraft:stone_brick_wall"
+    }
+  },
+  "result": {
+    "item": "agricultism:diamond_sprinkler",
+    "count": 1
+  }
+}

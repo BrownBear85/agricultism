@@ -16,4 +16,9 @@ public class BlockEntityRegistry {
             () -> BlockEntityType.Builder.of(DrumBlockEntity::new,
                             BlockRegistry.OAK_DRUM.get())
                     .build(null));
+
+    public static final RegistryObject<BlockEntityType<SprinklerBlockEntity>> SPRINKLER_BLOCK_ENTITY = BLOCK_ENTITY_TYPES.register("sprinkler",
+            () -> BlockEntityType.Builder.of(SprinklerBlockEntity::new,
+                            BlockRegistry.SPRINKLER.get(), BlockRegistry.IRON_SPRINKLER.get(), BlockRegistry.DIAMOND_SPRINKLER.get(), BlockRegistry.NETHERITE_SPRINKLER.get())
+                    .build(null));
 }

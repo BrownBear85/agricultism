@@ -246,6 +246,8 @@ public final class AssetCreator {
     }
 
     public static void main(String[] args) {
-        createBasicBlock("empty_crate");
+        createBasicBlock("iron_sprinkler");
+        createBasicBlock("diamond_sprinkler");
+        createBasicBlock("netherite_sprinkler");
     }
 }

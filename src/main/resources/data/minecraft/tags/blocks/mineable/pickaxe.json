@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "agricultism:sprinkler",
+    "agricultism:iron_sprinkler",
+    "agricultism:diamond_sprinkler",
+    "agricultism:netherite_sprinkler"
+  ]
+}

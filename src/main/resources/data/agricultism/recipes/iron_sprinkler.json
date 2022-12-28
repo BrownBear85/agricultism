@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ccc",
+    "ASA",
+    " S "
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:iron_ingot"
+    },
+    "A": {
+      "item": "agricultism:iron_watering_can"
+    },
+    "S": {
+      "item": "minecraft:stone_brick_wall"
+    }
+  },
+  "result": {
+    "item": "agricultism:iron_sprinkler",
+    "count": 1
+  }
+}

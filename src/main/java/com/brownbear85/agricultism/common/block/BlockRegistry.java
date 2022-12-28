@@ -2,9 +2,11 @@ package com.brownbear85.agricultism.common.block;
 
 import com.brownbear85.agricultism.Agricultism;
 import com.brownbear85.agricultism.common.block.custom.DrumBlock;
+import com.brownbear85.agricultism.common.block.custom.SprinklerBlock;
 import com.brownbear85.agricultism.common.item.ItemRegistry;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CarpetBlock;
@@ -37,9 +39,18 @@ public class BlockRegistry {
 
     public static final RegistryObject<Block> EMPTY_CRATE = register("empty_crate", () -> new Block(BlockBehaviour.Properties.of(Material.WOOD).strength(0.7F).sound(SoundType.WOOD).noOcclusion()), ItemRegistry.properties());
 
+    public static final RegistryObject<Block> SPRINKLER = register("sprinkler", () -> new SprinklerBlock(1, BlockBehaviour.Properties.of(Materials.SPRINKLER).strength(2.0F).sound(SoundType.METAL).noOcclusion()), ItemRegistry.properties().stacksTo(16));
+    public static final RegistryObject<Block> IRON_SPRINKLER = register("iron_sprinkler", () -> new SprinklerBlock(2, BlockBehaviour.Properties.of(Materials.SPRINKLER).strength(2.0F).sound(SoundType.METAL).noOcclusion()), ItemRegistry.properties().stacksTo(16));
+    public static final RegistryObject<Block> DIAMOND_SPRINKLER = register("diamond_sprinkler", () -> new SprinklerBlock(4, BlockBehaviour.Properties.of(Materials.SPRINKLER).strength(2.0F).sound(SoundType.METAL).noOcclusion()), ItemRegistry.properties().stacksTo(16));
+    public static final RegistryObject<Block> NETHERITE_SPRINKLER = register("netherite_sprinkler", () -> new SprinklerBlock(6, BlockBehaviour.Properties.of(Materials.SPRINKLER).strength(2.0F).sound(SoundType.METAL).noOcclusion()), ItemRegistry.properties().stacksTo(16).rarity(Rarity.RARE));
+
     private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> sup, Item.Properties properties) {
         RegistryObject<T> block = BLOCKS.register(name, sup);
         ItemRegistry.ITEMS.register(name, () -> new BlockItem(block.get(), properties));
         return block;
+    }
+
+    public static class Materials {
+        public static final Material SPRINKLER = (new Material.Builder(MaterialColor.METAL).nonSolid()).build();
     }
 }

@@ -51,5 +51,10 @@
   "block.agricultism.mangrove_carpet": "Mangrove Carpet",
   "block.agricultism.crimson_carpet": "Crimson Carpet",
   "block.agricultism.warped_carpet": "Warped Carpet",
-  "block.agricultism.empty_crate": "Empty Crate"
+  "block.agricultism.empty_crate": "Empty Crate",
+  "block.agricultism.sprinkler": "Sprinkler",
+  "block.agricultism.iron_sprinkler": "Iron Sprinkler",
+  "block.agricultism.diamond_sprinkler": "Diamond Sprinkler",
+  "block.agricultism.netherite_sprinkler": "Netherite Sprinkler",
+  "block.agricultism.sprinkler.range": "Range: %s"
 }
