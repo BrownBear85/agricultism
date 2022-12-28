@@ -29,7 +29,9 @@ import java.util.List;
 
 import static com.brownbear85.agricultism.Agricultism.MODID;
 
+@Mod.EventBusSubscriber(modid = MODID)
 public class HoeEvents {
+
     public static boolean harvestCrop(Level level, BlockPos pos, Player player, InteractionHand hand) {
         boolean success = false;
         BlockState state = level.getBlockState(pos);
@@ -71,36 +73,34 @@ public class HoeEvents {
         return success;
     }
 
-    @Mod.EventBusSubscriber(modid = MODID)
-    public static class CommonForgeEvents {
-        @SubscribeEvent
-        public static void playerRightClickedBlock(PlayerInteractEvent.RightClickBlock event) {
-            ItemStack stack = event.getItemStack();
+    @SubscribeEvent
+    public static void playerRightClickedBlock(PlayerInteractEvent.RightClickBlock event) {
+        ItemStack stack = event.getItemStack();
 
-            if (stack.getItem() instanceof HoeItem) {
-                Player player = event.getEntity();
-                Level level = player.getLevel();
+        if (stack.getItem() instanceof HoeItem) {
+            event.setCanceled(true);
 
-                BlockHitResult result = event.getHitVec();
-                InteractionHand hand = event.getHand();
+            Player player = event.getEntity();
+            Level level = player.getLevel();
 
-                boolean swing = false;
+            BlockHitResult result = event.getHitVec();
+            InteractionHand hand = event.getHand();
 
-                BlockPos centerPos = result.getBlockPos();
-                int range = stack.getEnchantmentLevel(EnchantmentRegistry.HOE_RANGE.get());
+            boolean swing = false;
 
-                for (BlockPos pos : BlockPos.betweenClosed(centerPos.offset(-range, 0, -range), centerPos.offset(range, 0, range))) {
-                    InteractionResult interactionResult = Items.WOODEN_HOE.useOn(new UseOnContext(player, hand, new BlockHitResult(new Vec3(pos.getX(), pos.getY(), pos.getZ()), result.getDirection(), pos, result.isInside())));
-                    boolean harvested = harvestCrop(level, pos, player, hand);
-                    if (!swing) {
-                        swing = interactionResult == InteractionResult.SUCCESS || harvested;
-                    }
+            BlockPos centerPos = result.getBlockPos();
+            int range = stack.getEnchantmentLevel(EnchantmentRegistry.HOE_RANGE.get());
+
+            for (BlockPos pos : BlockPos.betweenClosed(centerPos.offset(-range, 0, -range), centerPos.offset(range, 0, range))) {
+                InteractionResult interactionResult = Items.WOODEN_HOE.useOn(new UseOnContext(player, hand, new BlockHitResult(new Vec3(pos.getX(), pos.getY(), pos.getZ()), result.getDirection(), pos, result.isInside())));
+                boolean harvested = harvestCrop(level, pos, player, hand);
+                if (!swing) {
+                    swing = interactionResult == InteractionResult.SUCCESS || harvested;
                 }
+            }
 
-                if (swing) {
-                    player.swing(hand);
-                    event.setCanceled(true);
-                }
+            if (swing) {
+                player.swing(hand);
             }
         }
     }
