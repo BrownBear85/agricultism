@@ -1,4 +1,4 @@
-package com.brownbear85.agricultism.common.item;
+package com.brownbear85.agricultism.common.events;
 
 import com.brownbear85.agricultism.common.enchantment.EnchantmentRegistry;
 import net.minecraft.core.BlockPos;
@@ -29,7 +29,7 @@ import java.util.List;
 
 import static com.brownbear85.agricultism.Agricultism.MODID;
 
-public class HoeActions {
+public class HoeEvents {
     public static boolean harvestCrop(Level level, BlockPos pos, Player player, InteractionHand hand) {
         boolean success = false;
         BlockState state = level.getBlockState(pos);

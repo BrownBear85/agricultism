@@ -1,6 +1,6 @@
 package com.brownbear85.agricultism.common.block.custom;
 
-import com.brownbear85.agricultism.common.block.BlockEntityRegistry;
+import com.brownbear85.agricultism.common.block.entities.BlockEntityRegistry;
 import com.brownbear85.agricultism.common.block.entities.DrumBlockEntity;
 import com.brownbear85.agricultism.common.item.ItemRegistry;
 import net.minecraft.core.BlockPos;

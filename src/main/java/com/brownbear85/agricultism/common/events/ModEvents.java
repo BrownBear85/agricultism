@@ -1,4 +1,4 @@
-package com.brownbear85.agricultism.common;
+package com.brownbear85.agricultism.common.events;
 
 import com.brownbear85.agricultism.Agricultism;
 import net.minecraft.core.BlockPos;
