@@ -62,6 +62,9 @@ public class ItemRegistry {
     public static final RegistryObject<Item> CUT_ANIMAL_HIDE = ITEMS.register("cut_animal_hide", () -> new Item(properties()));
     public static final RegistryObject<Item> PRESERVED_ANIMAL_HIDE = ITEMS.register("preserved_animal_hide", () -> new Item(properties()));
 
+    public static final RegistryObject<Item> LEATHER_STRIP = ITEMS.register("leather_strip", () -> new Item(properties()));
+    public static final RegistryObject<Item> TOOL_HANDLE = ITEMS.register("tool_handle", () -> new Item(properties()));
+
 
     public static Item.Properties properties() {
         return new Item.Properties().tab(Agricultism.TAB);

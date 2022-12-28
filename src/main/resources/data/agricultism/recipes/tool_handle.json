@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "/": {
+      "item": "minecraft:stick"
+    },
+    "S": {
+      "item": "agricultism:leather_strip"
+    }
+  },
+  "pattern": [
+    " S/",
+    "S/S",
+    "/S "
+  ],
+  "result": {
+    "item": "agricultism:tool_handle",
+    "count": 3
+  }
+}
