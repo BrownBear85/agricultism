@@ -1,28 +1,29 @@
 package com.brownbear85.agricultism.common.item.custom;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.player.LocalPlayer;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.ItemUtils;
-import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 
-public class DrinkableItem extends Item {
-    public DrinkableItem(Item.Properties properties) {
+public class VegetableOilItem extends Item {
+    public VegetableOilItem(Item.Properties properties) {
         super(properties);
     }
 
     @Override
     public ItemStack finishUsingItem(ItemStack pStack, Level pLevel, LivingEntity pLivingEntity) {
-        return super.finishUsingItem(pStack, pLevel, pLivingEntity);
+        ItemStack stack = pLivingEntity.eat(pLevel, pStack);
+        if (pLivingEntity instanceof Player player && !player.getAbilities().instabuild) {
+            if (pStack.isEmpty()) {
+                return new ItemStack(Items.GLASS_BOTTLE);
+            }
+            player.getInventory().add(new ItemStack(Items.GLASS_BOTTLE));
+        }
+        return stack;
     }
 
     public int getUseDuration(ItemStack pStack) {
