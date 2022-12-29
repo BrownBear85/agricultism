@@ -4,6 +4,7 @@ import com.brownbear85.agricultism.Agricultism;
 import com.brownbear85.agricultism.common.block.custom.DrumBlock;
 import com.brownbear85.agricultism.common.block.custom.SprinklerBlock;
 import com.brownbear85.agricultism.common.item.ItemRegistry;
+import com.brownbear85.agricultism.common.item.custom.SprinklerBlockItem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
@@ -51,7 +52,7 @@ public class BlockRegistry {
 
     private static RegistryObject<Block> sprinkler(String name, int range, Item.Properties properties) {
         RegistryObject<Block> sprinklerBlock = BLOCKS.register(name, () -> new SprinklerBlock(range, BlockBehaviour.Properties.of(Materials.SPRINKLER).strength(2.0F).sound(SoundType.METAL).noOcclusion()));
-        ItemRegistry.ITEMS.register(name, () -> new BlockItem(sprinklerBlock.get(), properties));
+        ItemRegistry.ITEMS.register(name, () -> new SprinklerBlockItem(sprinklerBlock.get(), properties));
         return sprinklerBlock;
     }
 
