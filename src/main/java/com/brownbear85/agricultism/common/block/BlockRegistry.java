@@ -8,7 +8,6 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CarpetBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -39,15 +38,21 @@ public class BlockRegistry {
 
     public static final RegistryObject<Block> EMPTY_CRATE = register("empty_crate", () -> new Block(BlockBehaviour.Properties.of(Material.WOOD).strength(0.7F).sound(SoundType.WOOD).noOcclusion()), ItemRegistry.properties());
 
-    public static final RegistryObject<Block> SPRINKLER = register("sprinkler", () -> new SprinklerBlock(1, BlockBehaviour.Properties.of(Materials.SPRINKLER).strength(2.0F).sound(SoundType.METAL).noOcclusion()), ItemRegistry.properties().stacksTo(16));
-    public static final RegistryObject<Block> IRON_SPRINKLER = register("iron_sprinkler", () -> new SprinklerBlock(2, BlockBehaviour.Properties.of(Materials.SPRINKLER).strength(2.0F).sound(SoundType.METAL).noOcclusion()), ItemRegistry.properties().stacksTo(16));
-    public static final RegistryObject<Block> DIAMOND_SPRINKLER = register("diamond_sprinkler", () -> new SprinklerBlock(4, BlockBehaviour.Properties.of(Materials.SPRINKLER).strength(2.0F).sound(SoundType.METAL).noOcclusion()), ItemRegistry.properties().stacksTo(16));
-    public static final RegistryObject<Block> NETHERITE_SPRINKLER = register("netherite_sprinkler", () -> new SprinklerBlock(6, BlockBehaviour.Properties.of(Materials.SPRINKLER).strength(2.0F).sound(SoundType.METAL).noOcclusion()), ItemRegistry.properties().stacksTo(16).rarity(Rarity.RARE));
+    public static final RegistryObject<Block> SPRINKLER = sprinkler("sprinkler", 1, ItemRegistry.properties().stacksTo(16));
+    public static final RegistryObject<Block> IRON_SPRINKLER = sprinkler("iron_sprinkler", 2, ItemRegistry.properties().stacksTo(16));
+    public static final RegistryObject<Block> DIAMOND_SPRINKLER = sprinkler("diamond_sprinkler", 4, ItemRegistry.properties().stacksTo(16));
+    public static final RegistryObject<Block> NETHERITE_SPRINKLER = sprinkler("netherite_sprinkler", 6, ItemRegistry.properties().stacksTo(16).rarity(Rarity.RARE));
 
-    private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> sup, Item.Properties properties) {
-        RegistryObject<T> block = BLOCKS.register(name, sup);
+    private static RegistryObject<Block> register(String name, Supplier<Block> sup, Item.Properties properties) {
+        RegistryObject<Block> block = BLOCKS.register(name, sup);
         ItemRegistry.ITEMS.register(name, () -> new BlockItem(block.get(), properties));
         return block;
+    }
+
+    private static RegistryObject<Block> sprinkler(String name, int range, Item.Properties properties) {
+        RegistryObject<Block> sprinklerBlock = BLOCKS.register(name, () -> new SprinklerBlock(range, BlockBehaviour.Properties.of(Materials.SPRINKLER).strength(2.0F).sound(SoundType.METAL).noOcclusion()));
+        ItemRegistry.ITEMS.register(name, () -> new BlockItem(sprinklerBlock.get(), properties));
+        return sprinklerBlock;
     }
 
     public static class Materials {

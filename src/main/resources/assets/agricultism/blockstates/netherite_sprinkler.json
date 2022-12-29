@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "valid=false": {
       "model": "agricultism:block/netherite_sprinkler"
+    },
+    "valid=true": {
+      "model": "agricultism:block/netherite_sprinkler_extended"
     }
   }
 }

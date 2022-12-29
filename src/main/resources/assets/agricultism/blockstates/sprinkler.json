@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "valid=false": {
       "model": "agricultism:block/sprinkler"
+    },
+    "valid=true": {
+      "model": "agricultism:block/sprinkler_extended"
     }
   }
 }

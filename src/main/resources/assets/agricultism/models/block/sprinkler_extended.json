@@ -1,0 +1,6 @@
+{
+  "parent": "agricultism:block/sprinkler_base_extended",
+  "textures": {
+    "all": "agricultism:block/sprinkler"
+  }
+}
