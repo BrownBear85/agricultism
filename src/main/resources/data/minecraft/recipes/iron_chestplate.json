@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "minecraft:iron_ingot"
+    },
+    "E": {
+      "item": "minecraft:leather_chestplate"
+    }
+  },
+  "pattern": [
+    "XEX",
+    "XXX",
+    "XXX"
+  ],
+  "result": {
+    "item": "minecraft:iron_chestplate"
+  }
+}
