@@ -3,12 +3,18 @@ package com.brownbear85.agricultism.common.block;
 import com.brownbear85.agricultism.Agricultism;
 import com.brownbear85.agricultism.common.block.custom.DrumBlock;
 import com.brownbear85.agricultism.common.block.custom.SprinklerBlock;
+import com.brownbear85.agricultism.common.block.custom.VegetableOilCauldronBlock;
 import com.brownbear85.agricultism.common.item.ItemRegistry;
 import com.brownbear85.agricultism.common.item.custom.SprinklerBlockItem;
+import net.minecraft.core.cauldron.CauldronInteraction;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CarpetBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -18,7 +24,10 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.Map;
 import java.util.function.Supplier;
+
+import static net.minecraft.core.cauldron.CauldronInteraction.newInteractionMap;
 
 public class BlockRegistry {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Agricultism.MODID);
@@ -44,6 +53,9 @@ public class BlockRegistry {
     public static final RegistryObject<Block> DIAMOND_SPRINKLER = sprinkler("diamond_sprinkler", 4, ItemRegistry.properties().stacksTo(16));
     public static final RegistryObject<Block> NETHERITE_SPRINKLER = sprinkler("netherite_sprinkler", 6, ItemRegistry.properties().stacksTo(16).rarity(Rarity.RARE));
 
+    public static final Map<Item, CauldronInteraction> VEGETABLE_OIL_INTERACTIONS = newInteractionMap();
+    public static final RegistryObject<Block> VEGETABLE_OIL_CAULDRON = BLOCKS.register("vegetable_oil_cauldron", () -> new VegetableOilCauldronBlock(BlockBehaviour.Properties.copy(Blocks.WATER_CAULDRON), VEGETABLE_OIL_INTERACTIONS));
+
     private static RegistryObject<Block> register(String name, Supplier<Block> sup, Item.Properties properties) {
         RegistryObject<Block> block = BLOCKS.register(name, sup);
         ItemRegistry.ITEMS.register(name, () -> new BlockItem(block.get(), properties));
@@ -58,5 +70,13 @@ public class BlockRegistry {
 
     public static class Materials {
         public static final Material SPRINKLER = (new Material.Builder(MaterialColor.METAL).nonSolid()).build();
+    }
+
+    public static class Tags {
+        public static final TagKey<Block> NON_STRIPPED_LOGS = create("non_stripped_logs");
+
+        private static TagKey<Block> create(String location) {
+            return BlockTags.create(new ResourceLocation(Agricultism.MODID, location));
+        }
     }
 }
