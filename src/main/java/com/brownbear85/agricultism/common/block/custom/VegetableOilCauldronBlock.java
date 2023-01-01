@@ -38,25 +38,27 @@ public class VegetableOilCauldronBlock extends LayeredCauldronBlock implements E
 
     public static void registerInteractions() {
         BlockRegistry.VEGETABLE_OIL_INTERACTIONS.put(ItemRegistry.VEGETABLE_OIL_BOTTLE.get(), (state, level, pos, player, hand, stack) -> {
-            if (state.getValue(LayeredCauldronBlock.LEVEL) != 3) {
+            if (level.getBlockEntity(pos) instanceof VegetableOilCauldronBlockEntity entity && entity.getRenderStack() == ItemStack.EMPTY && state.getValue(LayeredCauldronBlock.LEVEL) != 3) {
                 if (!level.isClientSide) {
                     player.setItemInHand(hand, ItemUtils.createFilledResult(stack, player, Util.item(Items.GLASS_BOTTLE)));
                     level.setBlockAndUpdate(pos, state.cycle(LayeredCauldronBlock.LEVEL));
                     level.playSound(null, pos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
                 }
                 return InteractionResult.SUCCESS;
-            } else {
-                return InteractionResult.PASS;
             }
+            return InteractionResult.PASS;
         });
 
         BlockRegistry.VEGETABLE_OIL_INTERACTIONS.put(Items.GLASS_BOTTLE, (state, level, pos, player, hand, stack) -> {
-            if (!level.isClientSide) {
-                player.setItemInHand(hand, ItemUtils.createFilledResult(stack, player, Util.item(ItemRegistry.VEGETABLE_OIL_BOTTLE.get())));
-                LayeredCauldronBlock.lowerFillLevel(state, level, pos);
-                level.playSound(null, pos, SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
+            if (level.getBlockEntity(pos) instanceof VegetableOilCauldronBlockEntity entity && entity.getRenderStack() == ItemStack.EMPTY) {
+                if (!level.isClientSide) {
+                    player.setItemInHand(hand, ItemUtils.createFilledResult(stack, player, Util.item(ItemRegistry.VEGETABLE_OIL_BOTTLE.get())));
+                    LayeredCauldronBlock.lowerFillLevel(state, level, pos);
+                    level.playSound(null, pos, SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
+                }
+                return InteractionResult.SUCCESS;
             }
-            return InteractionResult.SUCCESS;
+            return InteractionResult.PASS;
         });
 
         BlockRegistry.VEGETABLE_OIL_INTERACTIONS.put(ItemRegistry.CUT_ANIMAL_HIDE.get(), (state, level, pos, player, hand, stack) -> {
