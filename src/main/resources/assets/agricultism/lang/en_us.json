@@ -58,5 +58,6 @@
   "block.agricultism.netherite_sprinkler": "Netherite Sprinkler",
   "block.agricultism.sprinkler.range": "Range: %s",
   "item.agricultism.leather_strip": "Leather Strip",
-  "item.agricultism.tool_handle": "Tool Handle"
+  "item.agricultism.tool_handle": "Tool Handle",
+  "block.agricultism.vegetable_oil_cauldron": "Vegetable Oil Cauldron"
 }

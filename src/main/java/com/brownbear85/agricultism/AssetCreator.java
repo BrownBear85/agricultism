@@ -246,7 +246,6 @@ public final class AssetCreator {
     }
 
     public static void main(String[] args) {
-        createBasicItem("leather_strip");
-        createBasicItem("tool_handle");
+        createBasicBlock("vegetable_oil_cauldron");
     }
 }

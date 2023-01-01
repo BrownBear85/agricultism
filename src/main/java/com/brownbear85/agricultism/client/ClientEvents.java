@@ -1,11 +1,14 @@
 package com.brownbear85.agricultism.client;
 
 import com.brownbear85.agricultism.Agricultism;
+import com.brownbear85.agricultism.client.rendering.VegetableOilCauldronBlockEntityRenderer;
 import com.brownbear85.agricultism.client.tooltip.ClientQualityTooltip;
 import com.brownbear85.agricultism.client.tooltip.QualityTooltip;
+import com.brownbear85.agricultism.common.block.entities.BlockEntityRegistry;
 import com.brownbear85.agricultism.common.item.custom.QualityItem;
 import com.mojang.datafixers.util.Either;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterClientTooltipComponentFactoriesEvent;
 import net.minecraftforge.client.event.RenderTooltipEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -20,6 +23,12 @@ public class ClientEvents {
         @SubscribeEvent
         public static void registerClientTooltipComponentFactories(RegisterClientTooltipComponentFactoriesEvent event) {
             event.register(QualityTooltip.class, (ClientQualityTooltip::new));
+        }
+
+        @SubscribeEvent
+        public static void registerRenders(EntityRenderersEvent.RegisterRenderers event) {
+            event.registerBlockEntityRenderer(BlockEntityRegistry.VEGETABLE_OIL_CAULDRON_BLOCK_ENTITY.get(),
+                    VegetableOilCauldronBlockEntityRenderer::new);
         }
     }
 

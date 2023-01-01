@@ -1,5 +1,6 @@
 package com.brownbear85.agricultism.common.block.custom;
 
+import com.brownbear85.agricultism.Util;
 import com.brownbear85.agricultism.common.block.entities.BlockEntityRegistry;
 import com.brownbear85.agricultism.common.block.entities.DrumBlockEntity;
 import com.brownbear85.agricultism.common.item.ItemRegistry;
@@ -13,7 +14,6 @@ import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -31,7 +31,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -54,6 +53,8 @@ public class DrumBlock extends BaseEntityBlock {
     private static final VoxelShape SHAPE_Z = Shapes.or(DRUM_Z, LEG1_Z, LEG2_Z, LEG3_Z, LEG4_Z);
     private static final VoxelShape SHAPE_X = Shapes.or(DRUM_X, LEG1_X, LEG2_X, LEG3_X, LEG4_X);
 
+    private static final int OIL_PER_BOTTLE = 250;
+
     public DrumBlock(Properties properties) {
         super(properties);
     }
@@ -67,17 +68,14 @@ public class DrumBlock extends BaseEntityBlock {
             BlockEntity entity = pLevel.getBlockEntity(pPos);
             if (entity instanceof DrumBlockEntity drumBlockEntity) {
                 int oil = drumBlockEntity.data.get(1);
-                if (oil >= 200) {
-                    drumBlockEntity.data.set(1, oil - 200);
+                if (oil >= OIL_PER_BOTTLE) {
+                    drumBlockEntity.data.set(1, oil - OIL_PER_BOTTLE);
                     if (pLevel instanceof ServerLevel serverLevel) {
                         serverLevel.playSound(null, pPlayer.getX(), pPlayer.getY(), pPlayer.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.NEUTRAL, 1.0F, 1.0F);
                     }
                     stack.shrink(1);
-                    if (!pPlayer.addItem(new ItemStack(ItemRegistry.VEGETABLE_OIL_BOTTLE.get()))) {
-                        Vec3 pos = pPlayer.getEyePosition();
-                        ItemEntity itemEntity = new ItemEntity(pLevel, pos.x(), pos.y(), pos.z(), new ItemStack(Items.ACACIA_BOAT));
-                        itemEntity.setDeltaMovement(pPlayer.getLookAngle().multiply(0.2, 0.2, 0.2));
-                        pLevel.addFreshEntity(itemEntity);
+                    if (!pPlayer.addItem(Util.item(ItemRegistry.VEGETABLE_OIL_BOTTLE.get()))) {
+                        pPlayer.drop(Util.item(ItemRegistry.VEGETABLE_OIL_BOTTLE.get()), false);
                     }
                     return InteractionResult.SUCCESS;
                 }

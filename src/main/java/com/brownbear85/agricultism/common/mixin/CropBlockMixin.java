@@ -1,5 +1,6 @@
 package com.brownbear85.agricultism.common.mixin;
 
+import com.brownbear85.agricultism.Util;
 import com.brownbear85.agricultism.common.item.ItemRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
@@ -19,11 +20,11 @@ public class CropBlockMixin {
     public void getCloneItemStack(BlockGetter getter, BlockPos pos, BlockState state, CallbackInfoReturnable<ItemStack> cir) {
         if (state.is(Blocks.POTATOES)) {
             cir.cancel();
-            cir.setReturnValue(new ItemStack(ItemRegistry.POTATO_SEEDS.get()));
+            cir.setReturnValue(Util.item(ItemRegistry.POTATO_SEEDS.get()));
         }
         if (state.is(Blocks.CARROTS)) {
             cir.cancel();
-            cir.setReturnValue(new ItemStack(ItemRegistry.CARROT_SEEDS.get()));
+            cir.setReturnValue(Util.item(ItemRegistry.CARROT_SEEDS.get()));
         }
     }
 }
