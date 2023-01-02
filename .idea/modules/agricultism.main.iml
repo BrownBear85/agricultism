@@ -12,10 +12,10 @@
     </facet>
   </component>
   <component name="McpModuleSettings">
-    <option name="mappingFile" value="C:\Users\asdfa\IdeaProjects\agricultism\build\createMcpToSrg\output.tsrg" />
+    <option name="mappingFile" value="C:\Users\Connor Wright\Desktop\Agricultism Mod\build\createMcpToSrg\output.tsrg" />
     <option name="mcpVersion" value="parchment_2022.11.27-1.19.2" />
     <option name="minecraftVersion" value="1.19.2" />
-    <option name="platformVersion" value="43.1.65" />
+    <option name="platformVersion" value="43.2.3" />
     <option name="srgType" value="TSRG" />
   </component>
 </module>
