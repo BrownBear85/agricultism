@@ -7,7 +7,7 @@ import org.jetbrains.annotations.NotNull;
 public class QualityItem extends Item {
     public final int defaultQuality;
 
-    public QualityItem(int defaultQuality, Item.Properties properties) {
+    public QualityItem(int defaultQuality, Properties properties) {
         super(properties);
         this.defaultQuality = defaultQuality;
     }

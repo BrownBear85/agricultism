@@ -8,7 +8,7 @@ import net.minecraft.world.level.block.Block;
 public class SeedItem extends Item {
     private final Block block;
 
-    public SeedItem(Block block, Item.Properties properties) {
+    public SeedItem(Block block, Properties properties) {
         super(properties);
         this.block = block;
     }

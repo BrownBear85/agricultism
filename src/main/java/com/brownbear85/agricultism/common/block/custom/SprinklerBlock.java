@@ -39,7 +39,7 @@ public class SprinklerBlock extends BaseEntityBlock {
     private static final VoxelShape BOX = Shapes.box(0.125, 0, 0.125, 0.875, 0.625, 0.875);
     private final int range;
 
-    public SprinklerBlock(int range, BlockBehaviour.Properties properties) {
+    public SprinklerBlock(int range, Properties properties) {
         super(properties);
         this.registerDefaultState(this.defaultBlockState().setValue(VALID, false));
         this.range = range;

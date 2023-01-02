@@ -19,7 +19,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class VegetableOilItem extends Item {
-    public VegetableOilItem(Item.Properties properties) {
+    public VegetableOilItem(Properties properties) {
         super(properties);
     }
 

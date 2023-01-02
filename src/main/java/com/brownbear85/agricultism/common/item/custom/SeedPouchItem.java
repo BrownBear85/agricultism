@@ -33,7 +33,7 @@ public class SeedPouchItem extends Item {
     private final int stackSize;
     private static final int FULLNESS_COLOR = 3272990;
 
-    public SeedPouchItem(Item.Properties properties, int storage, int stack) {
+    public SeedPouchItem(Properties properties, int storage, int stack) {
         super(properties);
         this.storageSize = storage;
         this.stackSize = stack;

@@ -4,7 +4,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
 public class CreativeWateringCanItem extends WateringCanItem {
-    public CreativeWateringCanItem(Item.Properties properties, int storage, int range) {
+    public CreativeWateringCanItem(Properties properties, int storage, int range) {
         super(properties, storage, range);
     }
 

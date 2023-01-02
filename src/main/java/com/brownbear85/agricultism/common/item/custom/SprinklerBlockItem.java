@@ -16,7 +16,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 
 public class SprinklerBlockItem extends BlockItem {
-    public SprinklerBlockItem(Block block, Item.Properties properties) {
+    public SprinklerBlockItem(Block block, Properties properties) {
         super(block, properties);
     }
 
